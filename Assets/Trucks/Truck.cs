@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] MailType.Colors _desiredColor = MailType.Colors.None;
+    public int TargetMailCount = 1;
+    [SerializeField] int _currentMailCount = 0;
+    [SerializeField] bool _isAcceptingMail = true;
+
+    Animator animator;
+
+    void Awake()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (_currentMailCount >= TargetMailCount)
+        {
+            _isAcceptingMail = false;
+            // Start truck leave animation
+            animator.Play("TruckLeave");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (_isAcceptingMail)
+        {
+            if (col.transform.TryGetComponent(out Mail mail))
+            {
+                if (mail.Color == _desiredColor)
+                {
+                    _currentMailCount++;
+                    Destroy(col.gameObject);
+                }
+            }
+        }
     }
 }

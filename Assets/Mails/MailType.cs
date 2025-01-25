@@ -2,13 +2,13 @@ public class MailType
 {
     public enum Colors
     {
+        None,
         Red,
         Orange,
         Yellow,
         Green,
         Blue,
-        Purple,
-        None
+        Purple
     }
 
     public Colors Merge(Colors c1, Colors c2)
