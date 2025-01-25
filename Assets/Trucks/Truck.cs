@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,18 +8,26 @@ public class Truck : MonoBehaviour
 {
     [SerializeField] MailType.Colors _desiredColor = MailType.Colors.None;
     [SerializeField] bool _isAcceptingMail = true;
+    public float TimeAllowed = 10f;
+    [SerializeField] float _timeRemaining = 10f;
     public int TargetMailCount = 1;
     [SerializeField] int _currentMailCount = 0;
     [SerializeField] TMP_Text _mailsRemainingTMP;
 
     bool _isArrived = false;
     float _spawnTime;
+    bool _hurryUpSoundPlayed = false;
+
+    public event Action TruckFinishedEvent;
+    public event Action TruckFailedEvent;
 
     Animator animator;
+    SFX sfx;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        sfx = GameObject.Find("SFX").GetComponent<SFX>();
     }
 
     void Start()
@@ -41,24 +50,45 @@ public class Truck : MonoBehaviour
                 _isAcceptingMail = true;
                 _isArrived = true;
                 animator.Play("TruckIdle");
+                sfx.Play(Sound.name.TruckEnters);
             }
         }
 
         if (_isAcceptingMail)
         {
             UpdateMailsRemainingTMP();
+            _timeRemaining = _spawnTime + TimeAllowed - Time.time;
 
+            // All mails delivered, truck finished
             if (_currentMailCount >= TargetMailCount)
             {
-                // Truck finished event
-
+                TruckFinishedEvent?.Invoke();
                 _isAcceptingMail = false;
-                // Start truck leave animation
                 animator.Play("TruckLeave");
+                sfx.Play(Sound.name.TruckShutsDoorLeaves);
+            }
+            else
+            {
+                // Hurry up sound when only 1/3 of the time bar remaining
+                if (_timeRemaining <= TimeAllowed / 3)
+                {
+                    if (!_hurryUpSoundPlayed)
+                    {
+                        sfx.Play(Sound.name.TruckHurryUp);
+                        _hurryUpSoundPlayed = true;
+                    }
+                }
+
+                // Timeout, truck failed
+                if (_timeRemaining <= 0)
+                {
+                    TruckFailedEvent?.Invoke();
+                    _isAcceptingMail = false;
+                    animator.Play("TruckLeave");
+                    sfx.Play(Sound.name.TruckShutsDoorLeaves);
+                }
             }
         }
-        
-        // Truck failed event when timeout
     }
 
     void UpdateMailsRemainingTMP()
@@ -76,7 +106,6 @@ public class Truck : MonoBehaviour
         {
             if (col.transform.TryGetComponent(out Mail mail))
             {
-                Debug.Log("Got mail!");
                 if (mail.Color == _desiredColor)
                 {
                     _currentMailCount++;

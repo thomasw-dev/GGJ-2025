@@ -22,13 +22,13 @@ public class SoapBubble : MonoBehaviour
         lifeTime -= Time.deltaTime;
         if (lifeTime < 0)
         {
-            Destroy(this.gameObject);
-
             // Random bubble pop sound
             int num = Random.Range(0, 3);
             if (num == 0) sfx.Play(Sound.name.BubblesPop1);
             if (num == 1) sfx.Play(Sound.name.BubblesPop2);
             if (num == 2) sfx.Play(Sound.name.BubblesPop3);
+
+            Destroy(this.gameObject);
         }
 
         // Set the mail position to be in the center of itself
@@ -47,8 +47,6 @@ public class SoapBubble : MonoBehaviour
                 // If it is not a captured mail
                 if (!mail.IsCaptured)
                 {
-                    Debug.Log("Capture the bubble!");
-
                     // Set itself as the parent for the mail
                     mail.transform.SetParent(transform);
                     mail.CapturedByBubble();

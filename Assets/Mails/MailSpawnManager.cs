@@ -30,6 +30,13 @@ public class MailSpawnManager : MonoBehaviour
         }
     }
 
+    SFX sfx;
+
+    void Awake()
+    {
+        sfx = GameObject.Find("SFX").GetComponent<SFX>();
+    }
+
     void Start()
     {
         IsSpawning = true;
@@ -40,6 +47,7 @@ public class MailSpawnManager : MonoBehaviour
         GameObject mail = Instantiate(_mailPrefab, _spawnPoint.position, Quaternion.identity);
         mail.transform.SetParent(_mailParent);
         mail.GetComponent<Mail>().SetInitialVelocity(_spawnForce);
+        sfx.Play(Sound.name.MailShootsOut);
     }
 
     void StopSpawn()

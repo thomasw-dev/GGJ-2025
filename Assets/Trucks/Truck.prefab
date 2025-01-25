@@ -315,7 +315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _desiredColor: 3
   _isAcceptingMail: 1
-  TargetMailCount: 2
+  TimeAllowed: 10
+  _timeRemaining: 10
+  TargetMailCount: 1
   _currentMailCount: 0
   _mailsRemainingTMP: {fileID: 5885410723400223697}
 --- !u!95 &5815525870969541523
