@@ -109,8 +109,14 @@ public class Truck : MonoBehaviour
                 if (mail.Color == _desiredColor)
                 {
                     _currentMailCount++;
-                    Destroy(col.gameObject);
+                    sfx.Play(Sound.name.MailSuccess);
                 }
+                else
+                {
+                    sfx.Play(Sound.name.MailError);
+                }
+
+                Destroy(col.gameObject);
             }
         }
     }
