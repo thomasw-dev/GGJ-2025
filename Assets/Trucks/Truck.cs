@@ -28,10 +28,18 @@ public class Truck : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Got sth!");
+
+        if (col.transform.TryGetComponent(out TruckManager truckManager))
+        {
+            Debug.Log("Got manager!");
+        }
+
         if (_isAcceptingMail)
         {
             if (col.transform.TryGetComponent(out Mail mail))
             {
+                Debug.Log("Got mail!");
                 if (mail.Color == _desiredColor)
                 {
                     _currentMailCount++;

@@ -237,6 +237,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+--- !u!1001 &1983858130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423547418602646393, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237192454274018054, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_Name
+      value: TruckManagerTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357157311445307791, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357157311445307791, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357157311445307791, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b250ec0975f0745aa3dd75973efa18, type: 3}
 --- !u!1 &2010355925
 GameObject:
   m_ObjectHideFlags: 0

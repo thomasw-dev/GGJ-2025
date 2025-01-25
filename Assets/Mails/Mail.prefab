@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7776112887477409455}
   - component: {fileID: 2640430759415302347}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: MailSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6042094555580947672}
   - component: {fileID: 4741063068899159182}
   - component: {fileID: -3301257804025659684}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Mail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 4294967295
