@@ -9,9 +9,12 @@ public class SoapBubble : MonoBehaviour
 
     GameObject _capturedMail;
 
-    public void Awake()
+    SFX sfx;
+
+    void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        sfx = GameObject.Find("SFX").GetComponent<SFX>();
     }
 
     void Update()
@@ -20,6 +23,12 @@ public class SoapBubble : MonoBehaviour
         if (lifeTime < 0)
         {
             Destroy(this.gameObject);
+
+            // Random bubble pop sound
+            int num = Random.Range(0, 3);
+            if (num == 0) sfx.Play(Sound.name.BubblesPop1);
+            if (num == 1) sfx.Play(Sound.name.BubblesPop2);
+            if (num == 2) sfx.Play(Sound.name.BubblesPop3);
         }
 
         // Set the mail position to be in the center of itself

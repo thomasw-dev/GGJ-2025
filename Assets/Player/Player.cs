@@ -13,13 +13,19 @@ public class Player : MonoBehaviour
     public SoapBubble soapBubble;
     public float soapBubbleSpeed = 5;
 
-    private void Start()
+    SFX sfx;
+
+    void Awake()
+    {
+        sfx = GameObject.Find("SFX").GetComponent<SFX>();
+    }
+
+    void Start()
     {
         if (rigidBody == null)
         {
             rigidBody = GetComponent<Rigidbody2D>();
         }
-
     }
 
     void Update()
@@ -36,6 +42,8 @@ public class Player : MonoBehaviour
         {
             // Shoot Bubble
             SoapBubble bubble = Instantiate(soapBubble, transform.parent);
+
+            sfx.Play(Sound.name.ShootBubbles);
 
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPosition.z = 0;
