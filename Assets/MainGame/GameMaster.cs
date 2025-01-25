@@ -6,13 +6,14 @@ using UnityEngine.Events;
 public class GameMaster : MonoBehaviour
 {
     public UnityEvent GameOver;
+    public UnityEvent LifeLost;
 
     private int lives = 3;
 
     private int trucksCount = 0;
 
     private int mailPerTruck = 5;
-    private float timePerTruck = 45f;
+    private float timePerTruck = 3f;
 
     private int mailIncreaseRange = 2;
     private int timeDecreaseRange = 3;
@@ -35,14 +36,22 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnTruck", 0f, 3f);
+        StartCoroutine(SpawnTruckRoutine());
     }
+
+    IEnumerator SpawnTruckRoutine()
+    {
+        SpawnTruck();
+        yield return new WaitForSeconds(timePerTruck);
+
+        StartCoroutine(SpawnTruckRoutine());
+    }
+
 
     private void SpawnTruck()
     {
-        Debug.Log("y");
+        Debug.Log("Spawned Truck: " + timePerTruck);
 
-        trucksCount++;
         int searchIndex = Random.Range(0, trucksSlots.Count);
 
         while (trucksSlots[searchIndex] == false)
@@ -52,6 +61,10 @@ public class GameMaster : MonoBehaviour
 
         // spawn truck 
         bool spawnable = trucksSlots[searchIndex];
+
+
+        trucksCount++;
+        timePerTruck += Random.Range(0, timeDecreaseRange);
     }
 
 
@@ -69,9 +82,15 @@ public class GameMaster : MonoBehaviour
     }
 
 
+    public void FinishedTruck()
+    {
+
+    }
+
     public void TimedoutTruck()
     {
         lives--;
+        LifeLost.Invoke();
 
         if (lives <= 0)
         {
