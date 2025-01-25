@@ -3201,6 +3201,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Truck
       objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3460,7 +3476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706873808908383114, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7706873808908383114, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_AnchoredPosition.y
