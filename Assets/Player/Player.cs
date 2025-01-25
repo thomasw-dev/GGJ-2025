@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Player : MonoBehaviour
 {
@@ -37,7 +36,6 @@ public class Player : MonoBehaviour
         {
             // Shoot Bubble
             SoapBubble bubble = Instantiate(soapBubble, transform.parent);
-            bubble.transform.position = transform.position;
 
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPosition.z = 0;
@@ -45,7 +43,10 @@ public class Player : MonoBehaviour
             playerPosition.z = 0;
             Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
 
-            bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+            bubble.transform.position = transform.position + shootDirection;
+
+            Vector3 playerVelocity = rigidBody.velocity;
+            bubble.rigidBody.AddForce(playerVelocity + shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
         }
     }
 }
