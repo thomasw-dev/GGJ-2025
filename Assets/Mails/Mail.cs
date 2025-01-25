@@ -49,7 +49,7 @@ public class Mail : MonoBehaviour
     {
         if (InitialForce != Vector2.zero)
         {
-            transform.Translate(InitialForce);
+            rigidBody.velocity = InitialForce;
         }
     }
 
