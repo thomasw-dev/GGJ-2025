@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4591091882715671694}
   - component: {fileID: 8628264376905697421}
   - component: {fileID: 4627259932003295843}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SoapBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,10 +124,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -157,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7969713653553194444}
   - component: {fileID: 2399811222720259522}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

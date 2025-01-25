@@ -53,7 +53,8 @@ public class Mail : MonoBehaviour
     {
         IsCaptured = true;
         //InitialForce = Vector2.zero;
-        rigidBody.bodyType = RigidbodyType2D.Static;
+        //rigidBody.bodyType = RigidbodyType2D.Static;
+        Destroy(rigidBody);
         col.isTrigger = true;
     }
 }

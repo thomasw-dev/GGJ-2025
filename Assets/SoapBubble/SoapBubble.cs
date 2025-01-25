@@ -38,6 +38,8 @@ public class SoapBubble : MonoBehaviour
                 // If it is not a captured mail
                 if (!mail.IsCaptured)
                 {
+                    Debug.Log("Capture the bubble!");
+
                     // Set itself as the parent for the mail
                     mail.transform.SetParent(transform);
                     mail.CapturedByBubble();
