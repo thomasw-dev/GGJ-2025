@@ -18,24 +18,21 @@ public class MailSpawnManager : MonoBehaviour
         set
         {
             if (value == true)
+            {
                 InvokeRepeating("SpawnMail", 0, _spawnInterval);
-            else CancelInvoke("SpawnMail");
+                Invoke("StopSpawn", _spawnDuration);
+            }
+            else
+            {
+                CancelInvoke("SpawnMail");
+            }
             _isSpawning = value;
         }
     }
 
-    List<Coroutine> _spawns;
-
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            IsSpawning = true;
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            IsSpawning = false;
-        }
+        IsSpawning = true;
     }
 
     void SpawnMail()
@@ -43,5 +40,10 @@ public class MailSpawnManager : MonoBehaviour
         GameObject mail = Instantiate(_mailPrefab, _spawnPoint.position, Quaternion.identity);
         mail.transform.SetParent(_mailParent);
         mail.GetComponent<Mail>().InitialForce = _spawnForce;
+    }
+
+    void StopSpawn()
+    {
+        IsSpawning = false;
     }
 }
