@@ -50,11 +50,15 @@ public class Truck : MonoBehaviour
 
             if (_currentMailCount >= TargetMailCount)
             {
+                // Truck finished event
+
                 _isAcceptingMail = false;
                 // Start truck leave animation
                 animator.Play("TruckLeave");
             }
         }
+        
+        // Truck failed event when timeout
     }
 
     void UpdateMailsRemainingTMP()
