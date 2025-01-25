@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Global.isGamePaused) return;
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         rigidBody.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
