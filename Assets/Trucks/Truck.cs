@@ -28,13 +28,6 @@ public class Truck : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log("Got sth!");
-
-        if (col.transform.TryGetComponent(out TruckManager truckManager))
-        {
-            Debug.Log("Got manager!");
-        }
-
         if (_isAcceptingMail)
         {
             if (col.transform.TryGetComponent(out Mail mail))

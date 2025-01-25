@@ -11,7 +11,6 @@ public class Mail : MonoBehaviour
 
     public bool IsCaptured = false;
     public MailType.Colors Color = MailType.Colors.None;
-    public Vector2 InitialForce = Vector2.zero;
 
     Rigidbody2D rigidBody;
     CircleCollider2D col;
@@ -45,19 +44,16 @@ public class Mail : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
     }
 
-    void FixedUpdate()
+    public void SetInitialVelocity(Vector2 velocity)
     {
-        if (InitialForce != Vector2.zero)
-        {
-            rigidBody.velocity = InitialForce;
-        }
+        rigidBody.velocity = velocity;
     }
 
     public void CapturedByBubble()
     {
         IsCaptured = true;
-        InitialForce = Vector2.zero;
-        //rigidBody.bodyType = RigidbodyType2D.Static;
-        //col.isTrigger = true;
+        //InitialForce = Vector2.zero;
+        rigidBody.bodyType = RigidbodyType2D.Static;
+        col.isTrigger = true;
     }
 }

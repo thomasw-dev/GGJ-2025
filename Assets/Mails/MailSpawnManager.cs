@@ -39,7 +39,7 @@ public class MailSpawnManager : MonoBehaviour
     {
         GameObject mail = Instantiate(_mailPrefab, _spawnPoint.position, Quaternion.identity);
         mail.transform.SetParent(_mailParent);
-        mail.GetComponent<Mail>().InitialForce = _spawnForce;
+        mail.GetComponent<Mail>().SetInitialVelocity(_spawnForce);
     }
 
     void StopSpawn()

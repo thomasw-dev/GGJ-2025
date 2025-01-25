@@ -347,6 +347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MailSpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+      propertyPath: _spawnForce.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+      propertyPath: _spawnInterval
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3151,11 +3159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.z
