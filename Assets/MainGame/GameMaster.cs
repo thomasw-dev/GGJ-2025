@@ -8,7 +8,7 @@ public class GameMaster : MonoBehaviour
     public UnityEvent GameOver;
     public UnityEvent LifeLost;
 
-    private int lives = 3;
+    public static int lives = 5;
 
     private int trucksCount = 0;
 
