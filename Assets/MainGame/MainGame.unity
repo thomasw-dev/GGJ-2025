@@ -3151,11 +3151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3192,6 +3192,14 @@ PrefabInstance:
     - target: {fileID: 3979839922211393210, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_Name
       value: Truck
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143984225373360589, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -31,12 +31,19 @@ public class SoapBubble : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.transform.TryGetComponent(out Mail mail))
+        if (_capturedMail == null)
         {
-            // Set itself as the parent for the mail
-            mail.transform.SetParent(transform);
-            mail.DisableInitialPhysics();
-            _capturedMail = mail.gameObject;
+            if (col.transform.TryGetComponent(out Mail mail))
+            {
+                // If it is not a captured mail
+                if (!mail.IsCaptured)
+                {
+                    // Set itself as the parent for the mail
+                    mail.transform.SetParent(transform);
+                    mail.CapturedByBubble();
+                    _capturedMail = mail.gameObject;
+                }
+            }
         }
     }
 }

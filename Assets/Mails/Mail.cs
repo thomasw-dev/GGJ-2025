@@ -9,6 +9,7 @@ public class Mail : MonoBehaviour
     public Sprite spriteYellow;
     public SpriteRenderer spriteRenderer;
 
+    public bool IsCaptured = false;
     public MailType.Colors Color = MailType.Colors.None;
     public Vector2 InitialForce = Vector2.zero;
 
@@ -52,10 +53,11 @@ public class Mail : MonoBehaviour
         }
     }
 
-    public void DisableInitialPhysics()
+    public void CapturedByBubble()
     {
+        IsCaptured = true;
         InitialForce = Vector2.zero;
-        rigidBody.bodyType = RigidbodyType2D.Static;
-        col.isTrigger = true;
+        //rigidBody.bodyType = RigidbodyType2D.Static;
+        //col.isTrigger = true;
     }
 }
