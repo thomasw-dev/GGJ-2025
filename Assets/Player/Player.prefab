@@ -52,7 +52,7 @@ MonoBehaviour:
   rigidBody: {fileID: 3005751884846024171}
   bodySprite: {fileID: 7856079005368477824}
   soapBubble: {fileID: 7859614607152737081, guid: 14f2cc21cd7e81c429906d88960f075d, type: 3}
-  soapBubbleSpeed: 5
+  soapBubbleSpeed: 10
 --- !u!50 &3005751884846024171
 Rigidbody2D:
   serializedVersion: 4

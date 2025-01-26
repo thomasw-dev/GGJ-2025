@@ -16,7 +16,6 @@ public class GameOver : MonoBehaviour
 
         canvas.enabled = false;
         scoreValueLabel.text = GameMaster.score.ToString();
-        
     }
 
     public void ShowScreen()
@@ -28,8 +27,8 @@ public class GameOver : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
         Global.isGamePaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

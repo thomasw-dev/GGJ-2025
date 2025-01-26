@@ -17,12 +17,12 @@ public class Mail : MonoBehaviour
 
     private void Start()
     {
-        SetSprite();
+        
     }
 
-    private void SetSprite()
+    public void SetColor(MailType.Colors color)
     {
-        switch (Color)
+        switch (color)
         {
             case MailType.Colors.Yellow:
                 spriteRenderer.sprite = spriteYellow;

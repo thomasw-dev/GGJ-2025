@@ -13,64 +13,47 @@ public class GameMaster : MonoBehaviour
 
     private int trucksCount = 0;
 
-    private int mailPerTruck = 5;
-    private float timePerTruck = 3f;
-
-    private int mailIncreaseRange = 2;
-    private int timeDecreaseRange = 3;
-
-    private int mailPerTruckMax = 25;
-    private int timePerTruckMinimum = 10;
+    private int phaseIndex = 0;
 
 
-    private IEnumerator truckSpawnRoutine;
-
-
-    //private List<Dictionary>
+    public List<MailSpawnManager> mailSlotsLevel;
+    public List<Truck> truckSlotsLevel;
 
 
 
 
-    private List<bool> trucksSlots = new List<bool>()
-    {
-        false,
-        true,
-        false,
-        true
-    };
 
 
     void Start()
     {
-        StartCoroutine(SpawnTruckRoutine());
-    }
-
-    IEnumerator SpawnTruckRoutine()
-    {
-        SpawnTruck();
-        yield return new WaitForSeconds(timePerTruck);
-
-        StartCoroutine(SpawnTruckRoutine());
+        StartCoroutine(RunPhaseRoutine());
     }
 
 
-    private void SpawnTruck()
+    IEnumerator RunPhaseRoutine()
     {
-        Debug.Log("Spawned Truck: " + timePerTruck);
+        yield return new WaitForSeconds(3);
 
-        int searchIndex = Random.Range(0, trucksSlots.Count);
+        RunPhase();
+    }
 
-        while (trucksSlots[searchIndex] == false)
+    public void RunPhase()
+    {
+        PhaseData.Phase phase = PhaseData.Phases[phaseIndex];
+
+        for (int m = 0; m < phase.MailSlots.Count; m++) 
         {
-            searchIndex = LoopIndex(searchIndex, trucksSlots.Count - 1);
+            mailSlotsLevel[m].HandleSpawningColor(phase.MailSlots[m]);
         }
 
-        // spawn truck 
-        bool spawnable = trucksSlots[searchIndex];
-
-
-        trucksCount++;
-        timePerTruck += Random.Range(0, timeDecreaseRange);
+        for (int t = 0; t < phase.TruckSlots.Count; t++)
+        {
+            if (phase.TruckSlots[t].Color != MailType.Colors.None)
+            {
+                trucksCount++;
+                // SpawnTruck
+            }
+        }
     }
 
 
@@ -88,9 +71,20 @@ public class GameMaster : MonoBehaviour
     }
 
 
+    public void HandleTruckDecrease()
+    {
+        trucksCount--;
+
+        if (trucksCount <= 0)
+        {
+            phaseIndex++;
+            StartCoroutine(RunPhaseRoutine());
+        }
+    }
+
     public void FinishedTruck()
     {
-
+        HandleTruckDecrease();
     }
 
     public void TimedoutTruck()
@@ -102,6 +96,8 @@ public class GameMaster : MonoBehaviour
         {
             GameOver.Invoke();
         }
+
+        HandleTruckDecrease();
     }
 
 

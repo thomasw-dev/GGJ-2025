@@ -11,6 +11,8 @@ public class MailSpawnManager : MonoBehaviour
     [SerializeField] float _spawnInterval = 1;
     [SerializeField] Vector2 _spawnForce = Vector2.zero;
 
+    private MailType.Colors _mailColor;
+
     [SerializeField] bool _isSpawning;
     public bool IsSpawning
     {
@@ -42,11 +44,26 @@ public class MailSpawnManager : MonoBehaviour
         IsSpawning = true;
     }
 
+    public void HandleSpawningColor(MailType.Colors color)
+    {
+        if (color == MailType.Colors.None)
+        {
+            IsSpawning = false;
+        }
+        else
+        {
+            _mailColor = color;
+            IsSpawning = true;
+        }
+    }
+
     void SpawnMail()
     {
-        GameObject mail = Instantiate(_mailPrefab, _spawnPoint.position, Quaternion.identity);
-        mail.transform.SetParent(_mailParent);
-        mail.GetComponent<Mail>().SetInitialVelocity(_spawnForce);
+        GameObject mailObj = Instantiate(_mailPrefab, _spawnPoint.position, Quaternion.identity);
+        mailObj.transform.SetParent(_mailParent);
+        Mail mail = mailObj.GetComponent<Mail>();
+        mail.SetColor(_mailColor);
+        mail.SetInitialVelocity(_spawnForce);
         sfx.Play(Sound.name.MailShootsOut);
     }
 
