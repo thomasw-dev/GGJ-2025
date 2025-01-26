@@ -71,6 +71,7 @@ public class Truck : MonoBehaviour
                 TruckFinishedEvent?.Invoke();
                 _isAcceptingMail = false;
                 animator.Play("TruckLeave");
+                InstantiateHappyFace();
                 sfx.Play(Sound.name.TruckShutsDoorLeaves);
             }
             else
@@ -91,6 +92,7 @@ public class Truck : MonoBehaviour
                     TruckFailedEvent?.Invoke();
                     _isAcceptingMail = false;
                     animator.Play("TruckLeave");
+                    InstantiateAngryFace();
                     sfx.Play(Sound.name.TruckShutsDoorLeaves);
                 }
             }
@@ -112,6 +114,18 @@ public class Truck : MonoBehaviour
         _progressMask.localPosition = new Vector3(x, 0, 0);
     }
 
+    void InstantiateHappyFace()
+    {
+        GameObject happyFace = Instantiate(_happyFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
+        happyFace.transform.SetParent(transform.Find("TruckSprite"));
+    }
+
+    void InstantiateAngryFace()
+    {
+        GameObject angryFace = Instantiate(_angryFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
+        angryFace.transform.SetParent(transform.Find("TruckSprite"));
+    }
+
     void OnTriggerStay2D(Collider2D col)
     {
         if (_isAcceptingMail)
@@ -122,15 +136,13 @@ public class Truck : MonoBehaviour
                 if (mail.Color == _desiredColor)
                 {
                     _currentMailCount++;
-                    GameObject happyFace = Instantiate(_happyFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
-                    happyFace.transform.SetParent(transform);
+                    InstantiateHappyFace();
                     sfx.Play(Sound.name.MailSuccess);
                 }
                 // Wrong mail
                 else
                 {
-                    GameObject angryFace = Instantiate(_angryFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
-                    angryFace.transform.SetParent(transform);
+                    InstantiateAngryFace();
                     sfx.Play(Sound.name.MailError);
                 }
 
