@@ -3322,7 +3322,8 @@ PrefabInstance:
       value: Truck
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7767881333210111633, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}

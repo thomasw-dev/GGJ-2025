@@ -15,6 +15,9 @@ public class Truck : MonoBehaviour
     [SerializeField] int _currentMailCount = 0;
     [SerializeField] TMP_Text _mailsRemainingTMP;
 
+    [SerializeField] GameObject _happyFacePrefab;
+    [SerializeField] GameObject _angryFacePrefab;
+
     bool _isArrived = false;
     float _spawnTime;
     bool _hurryUpSoundPlayed = false;
@@ -115,13 +118,19 @@ public class Truck : MonoBehaviour
         {
             if (col.transform.TryGetComponent(out Mail mail))
             {
+                // Correct mail
                 if (mail.Color == _desiredColor)
                 {
                     _currentMailCount++;
+                    GameObject happyFace = Instantiate(_happyFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
+                    happyFace.transform.SetParent(transform);
                     sfx.Play(Sound.name.MailSuccess);
                 }
+                // Wrong mail
                 else
                 {
+                    GameObject angryFace = Instantiate(_angryFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
+                    angryFace.transform.SetParent(transform);
                     sfx.Play(Sound.name.MailError);
                 }
 
