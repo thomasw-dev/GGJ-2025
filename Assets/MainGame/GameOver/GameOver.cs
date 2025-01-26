@@ -15,13 +15,14 @@ public class GameOver : MonoBehaviour
         if (canvas == null) canvas = GetComponent<Canvas>();
 
         canvas.enabled = false;
-        scoreValueLabel.text = GameMaster.score.ToString();
+        
     }
 
     public void ShowScreen()
     {
         canvas.enabled = true;
         Time.timeScale = 0;
+        scoreValueLabel.text = GameMaster.score.ToString();
         Global.isGamePaused = true;
     }
 

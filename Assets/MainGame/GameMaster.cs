@@ -27,7 +27,7 @@ public class GameMaster : MonoBehaviour
 
     IEnumerator RunPhaseRoutine()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         RunPhase();
     }
@@ -97,7 +97,7 @@ public class GameMaster : MonoBehaviour
 
     public void MailGotten()
     {
-        score += 10;
+        score += 100;
     }
 
 }
