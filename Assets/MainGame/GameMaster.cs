@@ -26,6 +26,11 @@ public class GameMaster : MonoBehaviour
     private IEnumerator truckSpawnRoutine;
 
 
+    //private List<Dictionary>
+
+
+
+
     private List<bool> trucksSlots = new List<bool>()
     {
         false,

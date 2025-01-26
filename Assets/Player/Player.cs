@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public  float moveSpeed = 10f;
     public Rigidbody2D rigidBody;
+    public SpriteRenderer bodySprite;
 
     private float horizontal;
     private float vertical;
@@ -36,6 +37,8 @@ public class Player : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         rigidBody.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
 
+        // Flip sprite on direction
+        bodySprite.flipX = (horizontal < 0) ? true : false;
 
 
         if (Input.GetMouseButtonDown(0)) 
