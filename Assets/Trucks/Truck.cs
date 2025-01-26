@@ -36,10 +36,24 @@ public class Truck : MonoBehaviour
 
     void Start()
     {
+        //_isArrived = false;
+        //_isAcceptingMail = false;
+        //_spawnTime = Time.time;
+        //animator.Play("TruckArrive");
+    }
+
+    public void SpawnTruck(MailType.Colors color, int mailNeeded, float timeAllowed)
+    {
         _isArrived = false;
         _isAcceptingMail = false;
         _spawnTime = Time.time;
         animator.Play("TruckArrive");
+
+        _desiredColor = color;
+        TargetMailCount = mailNeeded;
+        _currentMailCount = 0;
+        TimeAllowed = timeAllowed;
+        _timeRemaining = timeAllowed;
     }
 
     void Update()
