@@ -19,11 +19,6 @@ public class GameMaster : MonoBehaviour
     public List<MailSpawnManager> mailSlotsLevel;
     public List<Truck> truckSlotsLevel;
 
-
-
-
-
-
     void Start()
     {
         StartCoroutine(RunPhaseRoutine());
