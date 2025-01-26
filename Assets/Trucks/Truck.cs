@@ -10,6 +10,7 @@ public class Truck : MonoBehaviour
     [SerializeField] bool _isAcceptingMail = true;
     public float TimeAllowed = 10f;
     [SerializeField] float _timeRemaining = 10f;
+    [SerializeField] Transform _progressMask;
     public int TargetMailCount = 1;
     [SerializeField] int _currentMailCount = 0;
     [SerializeField] TMP_Text _mailsRemainingTMP;
@@ -57,7 +58,9 @@ public class Truck : MonoBehaviour
         if (_isAcceptingMail)
         {
             UpdateMailsRemainingTMP();
+
             _timeRemaining = _spawnTime + TimeAllowed - Time.time;
+            UpdateProgressMask(_timeRemaining / TimeAllowed);
 
             // All mails delivered, truck finished
             if (_currentMailCount >= TargetMailCount)
@@ -98,6 +101,12 @@ public class Truck : MonoBehaviour
         int num = TargetMailCount - _currentMailCount;
         string text = num > 0 ? num.ToString() : "";
         _mailsRemainingTMP.text = text;
+    }
+
+    void UpdateProgressMask(float amount)
+    {
+        float x = Method.Map(amount, 0, 1, -2, 0);
+        _progressMask.localPosition = new Vector3(x, 0, 0);
     }
 
     void OnTriggerStay2D(Collider2D col)

@@ -52,8 +52,6 @@ public class Mail : MonoBehaviour
     public void CapturedByBubble()
     {
         IsCaptured = true;
-        //InitialForce = Vector2.zero;
-        //rigidBody.bodyType = RigidbodyType2D.Static;
         Destroy(rigidBody);
         col.isTrigger = true;
     }
