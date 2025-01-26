@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             bubble.transform.position = transform.position + shootDirection;
 
             Vector3 playerVelocity = rigidBody.velocity;
-            bubble.rigidBody.AddForce(playerVelocity + shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+            bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
         }
     }
 }
