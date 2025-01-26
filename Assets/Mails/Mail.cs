@@ -22,6 +22,7 @@ public class Mail : MonoBehaviour
 
     public void SetColor(MailType.Colors color)
     {
+        Color = color;
         switch (color)
         {
             case MailType.Colors.Yellow:
