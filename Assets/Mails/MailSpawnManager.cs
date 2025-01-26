@@ -41,7 +41,7 @@ public class MailSpawnManager : MonoBehaviour
 
     void Start()
     {
-        IsSpawning = true;
+        //IsSpawning = true;
     }
 
     public void HandleSpawningColor(MailType.Colors color)

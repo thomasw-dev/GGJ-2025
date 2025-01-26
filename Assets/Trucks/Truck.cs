@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Truck : MonoBehaviour
 {
@@ -22,8 +23,8 @@ public class Truck : MonoBehaviour
     float _spawnTime;
     bool _hurryUpSoundPlayed = false;
 
-    public event Action TruckFinishedEvent;
-    public event Action TruckFailedEvent;
+    public UnityEvent TruckFinishedEvent;
+    public UnityEvent TruckFailedEvent;
 
     Animator animator;
     SFX sfx;
