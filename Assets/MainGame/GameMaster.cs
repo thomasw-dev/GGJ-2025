@@ -8,10 +8,10 @@ public class GameMaster : MonoBehaviour
     public UnityEvent GameOver;
     public UnityEvent LifeLost;
 
-    public static int lives = 5;
+    public static int lives = 2;
     public static int score = 0;
 
-    private int trucksCount = 0;
+    private int trucksCount = 2;
 
     private int phaseIndex = 0;
 
@@ -41,14 +41,14 @@ public class GameMaster : MonoBehaviour
             mailSlotsLevel[m].HandleSpawningColor(phase.MailSlots[m]);
         }
 
-        for (int t = 0; t < phase.TruckSlots.Count; t++)
-        {
-            if (phase.TruckSlots[t].Color != MailType.Colors.None)
-            {
-                trucksCount++;
-                // SpawnTruck
-            }
-        }
+        //for (int t = 0; t < phase.TruckSlots.Count; t++)
+        //{
+        //    if (phase.TruckSlots[t].Color != MailType.Colors.None)
+        //    {
+        //        trucksCount++;
+        //        truckSlotsLevel[t].SpawnTruck(phase.TruckSlots[t].Color, phase.TruckSlots[t].MailNeeded, phase.TruckSlots[t].TimeAllowed);
+        //    }
+        //}
     }
 
 
@@ -95,6 +95,9 @@ public class GameMaster : MonoBehaviour
         HandleTruckDecrease();
     }
 
-
+    public void MailGotten()
+    {
+        score += 10;
+    }
 
 }

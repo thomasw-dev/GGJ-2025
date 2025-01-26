@@ -25,6 +25,7 @@ public class Truck : MonoBehaviour
 
     public UnityEvent TruckFinishedEvent;
     public UnityEvent TruckFailedEvent;
+    public UnityEvent MailAdded;
 
     Animator animator;
     SFX sfx;
@@ -61,7 +62,7 @@ public class Truck : MonoBehaviour
     {
         if (!_isArrived)
         {
-            UpdateMailsRemainingTMP();
+            //UpdateMailsRemainingTMP();
 
             // Initially, the truck is not accepting mails until it has arrived (1 second)
             if (Time.time >= _spawnTime + 1f)
@@ -75,7 +76,7 @@ public class Truck : MonoBehaviour
 
         if (_isAcceptingMail)
         {
-            UpdateMailsRemainingTMP();
+            //UpdateMailsRemainingTMP();
 
             _timeRemaining = _spawnTime + TimeAllowed - Time.time;
             UpdateProgressMask(_timeRemaining / TimeAllowed);
@@ -114,14 +115,14 @@ public class Truck : MonoBehaviour
         }
     }
 
-    void UpdateMailsRemainingTMP()
-    {
-        if (_mailsRemainingTMP == null) return;
+    //void UpdateMailsRemainingTMP()
+    //{
+    //    if (_mailsRemainingTMP == null) return;
 
-        int num = TargetMailCount - _currentMailCount;
-        string text = num > 0 ? num.ToString() : "";
-        _mailsRemainingTMP.text = text;
-    }
+    //    int num = TargetMailCount - _currentMailCount;
+    //    string text = num > 0 ? num.ToString() : "";
+    //    _mailsRemainingTMP.text = text;
+    //}
 
     void UpdateProgressMask(float amount)
     {
@@ -152,6 +153,7 @@ public class Truck : MonoBehaviour
                 {
                     _currentMailCount++;
                     InstantiateHappyFace();
+                    MailAdded.Invoke();
                     sfx.Play(Sound.name.MailSuccess);
                 }
                 // Wrong mail
