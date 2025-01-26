@@ -31,8 +31,8 @@ public class HealthBar : MonoBehaviour
         if (index >= 0)
         {
             healthItems[index].LoseLife();
+            index--;
         }
-        index--;
     }
 
     
