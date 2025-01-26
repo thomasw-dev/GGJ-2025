@@ -9,6 +9,7 @@ public class GameMaster : MonoBehaviour
     public UnityEvent LifeLost;
 
     public static int lives = 5;
+    public static int score = 0;
 
     private int trucksCount = 0;
 
