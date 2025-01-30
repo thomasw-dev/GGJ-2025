@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour
         if (canvas == null) canvas = GetComponent<Canvas>();
 
         canvas.enabled = false;
-        
+        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     public void ShowScreen()
@@ -30,6 +30,8 @@ public class GameOver : MonoBehaviour
     {
         Time.timeScale = 1;
         Global.isGamePaused = false;
+        canvas.enabled = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

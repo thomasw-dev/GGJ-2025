@@ -21,6 +21,12 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
+        lives = 2;
+        score = 0;
+        trucksCount = 2;
+
+        StopAllCoroutines();
+
         StartCoroutine(RunPhaseRoutine());
     }
 

@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1ab9cad2f4c374cb6d1b71436f987f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: c846b8b57c5aa524b940a60b49955171, type: 2}
   masterSlider: {fileID: 5171049145919288451}
   musicSlider: {fileID: 4999779859021738149}
   sfxSlider: {fileID: 3297185410011702001}
@@ -1387,9 +1387,9 @@ RectTransform:
   m_Father: {fileID: 5376407855630897395}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -130}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3503162151164092992
