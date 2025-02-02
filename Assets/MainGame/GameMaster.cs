@@ -47,14 +47,14 @@ public class GameMaster : MonoBehaviour
             mailSlotsLevel[m].HandleSpawningColor(phase.MailSlots[m]);
         }
 
-        //for (int t = 0; t < phase.TruckSlots.Count; t++)
-        //{
-        //    if (phase.TruckSlots[t].Color != MailType.Colors.None)
-        //    {
-        //        trucksCount++;
-        //        truckSlotsLevel[t].SpawnTruck(phase.TruckSlots[t].Color, phase.TruckSlots[t].MailNeeded, phase.TruckSlots[t].TimeAllowed);
-        //    }
-        //}
+        for (int t = 0; t < phase.TruckSlots.Count; t++)
+        {
+            if (phase.TruckSlots[t].Color != MailType.Colors.None)
+            {
+                trucksCount++;
+                truckSlotsLevel[t].SpawnTruck(phase.TruckSlots[t].Color, phase.TruckSlots[t].MailNeeded, phase.TruckSlots[t].TimeAllowed);
+            }
+        }
     }
 
 
