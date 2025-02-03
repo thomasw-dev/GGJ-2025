@@ -18,7 +18,9 @@ public class Truck : MonoBehaviour
 
     [SerializeField] GameObject _happyFacePrefab;
     [SerializeField] GameObject _angryFacePrefab;
+    [SerializeField] Animator _truckSprite;
 
+    bool _isSpawned = false;
     bool _isArrived = false;
     float _spawnTime;
     bool _hurryUpSoundPlayed = false;
@@ -36,22 +38,21 @@ public class Truck : MonoBehaviour
         sfx = GameObject.Find("SFX").GetComponent<SFX>();
     }
 
-    void Start()
-    {
-        _isArrived = false;
-        _isAcceptingMail = false;
-        //_spawnTime = Time.time;
-        //animator.Play("TruckArrive");
-    }
-
     public void SpawnTruck(MailType.Colors color, int mailNeeded, float timeAllowed)
     {
+        _isSpawned = true;
+        _spawnTime = Time.time;
+
         _isArrived = false;
         _isAcceptingMail = false;
-        _spawnTime = Time.time;
         animator.Play("TruckArrive");
 
         _desiredColor = color;
+        // Play the static animation of the correct color
+        if (_desiredColor == MailType.Colors.Red) _truckSprite.Play("TruckStatic_Red");
+        if (_desiredColor == MailType.Colors.Yellow) _truckSprite.Play("TruckStatic_Yellow");
+        if (_desiredColor == MailType.Colors.Blue) _truckSprite.Play("TruckStatic_Blue");
+
         TargetMailCount = mailNeeded;
         _currentMailCount = 0;
         TimeAllowed = timeAllowed;
@@ -60,23 +61,30 @@ public class Truck : MonoBehaviour
 
     void Update()
     {
+        if (!_isSpawned) return;
+
         if (!_isArrived)
         {
-            //UpdateMailsRemainingTMP();
+            UpdateMailsRemainingTMP();
 
             // Initially, the truck is not accepting mails until it has arrived (1 second)
             if (Time.time >= _spawnTime + 1f)
             {
                 _isAcceptingMail = true;
                 _isArrived = true;
-                animator.Play("TruckIdle");
+
+                // Play the idle animation of the correct color
+                if (_desiredColor == MailType.Colors.Red) _truckSprite.Play("TruckIdle_Red");
+                if (_desiredColor == MailType.Colors.Yellow) _truckSprite.Play("TruckIdle_Yellow");
+                if (_desiredColor == MailType.Colors.Blue) _truckSprite.Play("TruckIdle_Blue");
+
                 sfx.Play(Sound.name.TruckEnters);
             }
         }
 
         if (_isAcceptingMail)
         {
-            //UpdateMailsRemainingTMP();
+            UpdateMailsRemainingTMP();
 
             _timeRemaining = _spawnTime + TimeAllowed - Time.time;
             UpdateProgressMask(_timeRemaining / TimeAllowed);
@@ -89,6 +97,7 @@ public class Truck : MonoBehaviour
                 animator.Play("TruckLeave");
                 InstantiateHappyFace();
                 sfx.Play(Sound.name.TruckShutsDoorLeaves);
+                _isSpawned = false;
             }
             else
             {
@@ -110,19 +119,20 @@ public class Truck : MonoBehaviour
                     animator.Play("TruckLeave");
                     InstantiateAngryFace();
                     sfx.Play(Sound.name.TruckShutsDoorLeaves);
+                    _isSpawned = false;
                 }
             }
         }
     }
 
-    //void UpdateMailsRemainingTMP()
-    //{
-    //    if (_mailsRemainingTMP == null) return;
+    void UpdateMailsRemainingTMP()
+    {
+        if (_mailsRemainingTMP == null) return;
 
-    //    int num = TargetMailCount - _currentMailCount;
-    //    string text = num > 0 ? num.ToString() : "";
-    //    _mailsRemainingTMP.text = text;
-    //}
+        int num = TargetMailCount - _currentMailCount;
+        string text = num > 0 ? num.ToString() : "";
+        _mailsRemainingTMP.text = text;
+    }
 
     void UpdateProgressMask(float amount)
     {
@@ -144,6 +154,8 @@ public class Truck : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
+        if (!_isSpawned) return;
+
         if (_isAcceptingMail)
         {
             if (col.transform.TryGetComponent(out Mail mail))

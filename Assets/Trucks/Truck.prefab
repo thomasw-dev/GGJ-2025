@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3418532916652696028}
   - component: {fileID: 8250910237929898271}
+  - component: {fileID: 8824621179194558303}
   m_Layer: 0
   m_Name: TruckSprite
   m_TagString: Untagged
@@ -211,6 +212,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8824621179194558303
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283941659872761230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee0ea897dfc0ab7438a99a53f864ffaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3016414292919550683
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc33b7d9946a4f24fbd12f6e41d1860f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _desiredColor: 3
+  _desiredColor: 0
   _isAcceptingMail: 1
   TimeAllowed: 10
   _timeRemaining: 10
@@ -448,6 +470,16 @@ MonoBehaviour:
   _mailsRemainingTMP: {fileID: 5885410723400223697}
   _happyFacePrefab: {fileID: 2566222547300538742, guid: ef15e6915bcdd374d955d6a6afb2ef86, type: 3}
   _angryFacePrefab: {fileID: 2566222547300538742, guid: 5f439ca024da61f4b958554fa2399ee1, type: 3}
+  _truckSprite: {fileID: 8824621179194558303}
+  TruckFinishedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  TruckFailedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  MailAdded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &5815525870969541523
 Animator:
   serializedVersion: 5
