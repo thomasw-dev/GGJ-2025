@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     public SoapBubble soapBubble;
     public float soapBubbleSpeed = 5;
 
+    float posBoundMaxX = 7.5f;
+    float posBoundMinX = -7.5f;
+    float posBoundMaxY = 4.25f;
+    float posBoundMinY = -3.5f;
+
     SFX sfx;
 
     void Awake()
@@ -63,5 +68,10 @@ public class Player : MonoBehaviour
 
         // Cursor look at mouse
         cursor.rotation = Quaternion.LookRotation(mouseWorldPosition - cursor.position, Vector3.forward);
+
+        // Player position boundaries
+        float boundedPosX = Mathf.Clamp(transform.position.x, posBoundMinX, posBoundMaxX);
+        float boundedPosY = Mathf.Clamp(transform.position.y, posBoundMinY, posBoundMaxY);
+        transform.position = new Vector3(boundedPosX, boundedPosY, transform.position.z);
     }
 }
