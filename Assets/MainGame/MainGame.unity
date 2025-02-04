@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,11 +177,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661782325295262266, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_Name
-      value: MailSpawnManager (1)
+      value: MailSpawnManager (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnForce.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+      propertyPath: _spawnDuration
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnInterval
@@ -1411,6 +1415,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &95547313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95547314}
+  m_Layer: 0
+  m_Name: ---------- Player ----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95547314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95547313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &208114109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1421,7 +1456,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 539940596615498088, guid: b933e6acbf80c60488d5a0bb07876b13, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 539940596615498088, guid: b933e6acbf80c60488d5a0bb07876b13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1472,6 +1507,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b933e6acbf80c60488d5a0bb07876b13, type: 3}
+--- !u!1 &286613866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286613867}
+  m_Layer: 0
+  m_Name: ---------- Mails ----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286613867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286613866}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &343771434 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
@@ -1493,7 +1559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368235098}
   m_Layer: 0
-  m_Name: ---------- Game ----------
+  m_Name: ---------- Grid ----------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1579,7 +1645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1623,7 +1689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: MailAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1646,7 +1712,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1230570247}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1230570247}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -1662,7 +1736,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimedoutTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: TimedoutTruck
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -1682,6 +1764,10 @@ PrefabInstance:
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -1691,6 +1777,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -1705,13 +1795,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Truck (3: Lower Left)'
       objectReference: {fileID: 0}
-    - target: {fileID: 6629345257118019458, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6661598641381386357, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8562280503092249065, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1835,7 +1921,7 @@ GameObject:
   - component: {fileID: 1011825227}
   - component: {fileID: 1011825226}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SwitchScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1861,12 +1947,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011825225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23070177, y: -0.4302428, z: 0.08744344}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1189094215
 GameObject:
@@ -1964,7 +2050,7 @@ RectTransform:
   m_Children:
   - {fileID: 1297591653}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2026,6 +2112,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f014a98d1bc599a4a9d6186f10671893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLives: 3
+  currentScore: 0
+  trucksCount: 0
+  phaseIndex: 0
+  mailSlotsLevel:
+  - {fileID: 343771434}
+  - {fileID: 8080190}
+  - {fileID: 1948834966}
+  truckSlotsLevel:
+  - {fileID: 1845080003}
+  - {fileID: 1718945201}
+  - {fileID: 406256227}
+  - {fileID: 1899816562}
   GameOver:
     m_PersistentCalls:
       m_Calls:
@@ -2056,15 +2155,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  mailSlotsLevel:
-  - {fileID: 343771434}
-  - {fileID: 8080190}
-  - {fileID: 1948834966}
-  truckSlotsLevel:
-  - {fileID: 1845080003}
-  - {fileID: 1718945201}
-  - {fileID: 406256227}
-  - {fileID: 1899816562}
 --- !u!1001 &1255002755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2075,7 +2165,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2124,6 +2214,10 @@ PrefabInstance:
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnForce.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+      propertyPath: _spawnDuration
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnInterval
@@ -4969,7 +5063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5013,7 +5107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: MailAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5036,7 +5130,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1230570247}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1230570247}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5052,7 +5154,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimedoutTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: TimedoutTruck
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5072,6 +5182,10 @@ PrefabInstance:
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5081,6 +5195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5094,10 +5212,6 @@ PrefabInstance:
     - target: {fileID: 3979839922211393210, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_Name
       value: 'Truck (2: Upper Right)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6629345257118019458, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6661598641381386357, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5158,7 +5272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5202,7 +5316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: MailAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5225,7 +5339,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1230570247}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1230570247}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5241,7 +5363,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimedoutTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: TimedoutTruck
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5261,6 +5391,10 @@ PrefabInstance:
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5270,6 +5404,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5283,10 +5421,6 @@ PrefabInstance:
     - target: {fileID: 3979839922211393210, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_Name
       value: 'Truck (1: Upper Left)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6629345257118019458, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6661598641381386357, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5452,7 +5586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2708940982023195702, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5496,7 +5630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: MailAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5519,7 +5653,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1230570247}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1230570247}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5535,7 +5677,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimedoutTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: TimedoutTruck
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5555,6 +5705,10 @@ PrefabInstance:
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFinishedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5564,6 +5718,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
+      propertyPath: TruckFailedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3401323639701266448, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
@@ -5577,10 +5735,6 @@ PrefabInstance:
     - target: {fileID: 3979839922211393210, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_Name
       value: 'Truck (4: Lower Right)'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6629345257118019458, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6661598641381386357, guid: 8b9b3978d7ea5664c9741d700c93637f, type: 3}
       propertyPath: m_LocalScale.x
@@ -5617,7 +5771,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2142573945096315003, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5661,11 +5815,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661782325295262266, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: m_Name
-      value: MailSpawnManager (2)
+      value: MailSpawnManager (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnForce.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
+      propertyPath: _spawnDuration
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 8625007321648956196, guid: 385eb6dcebe3b3049a55d52054d21474, type: 3}
       propertyPath: _spawnInterval
@@ -5755,6 +5913,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2072948711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072948712}
+  m_Layer: 0
+  m_Name: ---------- UI ----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072948712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072948711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2080523758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080523759}
+  m_Layer: 0
+  m_Name: ---------- Trucks ----------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2080523759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080523758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2876686253237856902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5842,7 +6062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 582958339919991059, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 582958339919991059, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5950,7 +6170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5566680109229850316, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5566680109229850316, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6355,7 +6575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706873808908383114, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7706873808908383114, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_AnchoredPosition.y

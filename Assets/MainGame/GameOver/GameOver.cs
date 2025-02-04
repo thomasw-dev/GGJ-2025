@@ -9,13 +9,11 @@ public class GameOver : MonoBehaviour
     public Canvas canvas;
     public TextMeshProUGUI scoreValueLabel;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (canvas == null) canvas = GetComponent<Canvas>();
 
         canvas.enabled = false;
-        Debug.Log(SceneManager.GetActiveScene().name);
     }
 
     public void ShowScreen()

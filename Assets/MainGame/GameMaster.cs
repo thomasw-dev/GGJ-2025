@@ -5,31 +5,34 @@ using UnityEngine.Events;
 
 public class GameMaster : MonoBehaviour
 {
-    public UnityEvent GameOver;
-    public UnityEvent LifeLost;
-
-    public static int lives = 2;
+    public static int lives = 3;
     public static int score = 0;
 
-    private int trucksCount = 2;
+    public int currentLives = 3; // view lives in Inspector
+    public int currentScore = 0; // view score in Inspector
 
-    private int phaseIndex = 0;
-
+    [SerializeField] private int trucksCount = 2;
+    [SerializeField] private int phaseIndex = 0;
 
     public List<MailSpawnManager> mailSlotsLevel;
     public List<Truck> truckSlotsLevel;
 
+    public UnityEvent GameOver;
+    public UnityEvent LifeLost;
+
     void Start()
     {
-        lives = 2;
+        lives = 3;
         score = 0;
-        trucksCount = 2;
-
         StopAllCoroutines();
-
         StartCoroutine(RunPhaseRoutine());
     }
 
+    void Update()
+    {
+        currentLives = lives;
+        currentScore = score;
+    }
 
     IEnumerator RunPhaseRoutine()
     {
@@ -47,6 +50,7 @@ public class GameMaster : MonoBehaviour
             mailSlotsLevel[m].HandleSpawningColor(phase.MailSlots[m]);
         }
 
+        trucksCount = 0;
         for (int t = 0; t < phase.TruckSlots.Count; t++)
         {
             if (phase.TruckSlots[t].Color != MailType.Colors.None)
@@ -56,8 +60,6 @@ public class GameMaster : MonoBehaviour
             }
         }
     }
-
-
 
     private int LoopIndex(int index, int max)
     {
@@ -70,7 +72,6 @@ public class GameMaster : MonoBehaviour
 
         return index;
     }
-
 
     public void HandleTruckDecrease()
     {
@@ -91,11 +92,11 @@ public class GameMaster : MonoBehaviour
     public void TimedoutTruck()
     {
         lives--;
-        LifeLost.Invoke();
+        LifeLost?.Invoke();
 
         if (lives <= 0)
         {
-            GameOver.Invoke();
+            GameOver?.Invoke();
         }
 
         HandleTruckDecrease();
@@ -105,5 +106,4 @@ public class GameMaster : MonoBehaviour
     {
         score += 100;
     }
-
 }

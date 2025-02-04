@@ -142,14 +142,14 @@ public class Truck : MonoBehaviour
 
     void InstantiateHappyFace()
     {
-        GameObject happyFace = Instantiate(_happyFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
-        happyFace.transform.SetParent(transform.Find("TruckSprite"));
+        GameObject happyFace = Instantiate(_happyFacePrefab, transform.Find("TruckSprite"));
+        happyFace.transform.Translate(Vector3.left * 1.5f, Space.Self);
     }
 
     void InstantiateAngryFace()
     {
-        GameObject angryFace = Instantiate(_angryFacePrefab, transform.position + Vector3.left * 1.5f, Quaternion.identity);
-        angryFace.transform.SetParent(transform.Find("TruckSprite"));
+        GameObject angryFace = Instantiate(_angryFacePrefab, transform.Find("TruckSprite"));
+        angryFace.transform.Translate(Vector3.left * 1.5f, Space.Self);
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -165,7 +165,7 @@ public class Truck : MonoBehaviour
                 {
                     _currentMailCount++;
                     InstantiateHappyFace();
-                    MailAdded.Invoke();
+                    MailAdded?.Invoke();
                     sfx.Play(Sound.name.MailSuccess);
                 }
                 // Wrong mail

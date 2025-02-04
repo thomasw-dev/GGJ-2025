@@ -7,7 +7,7 @@ public class MailSpawnManager : MonoBehaviour
     [SerializeField] GameObject _mailPrefab;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] Transform _mailParent;
-    [SerializeField] float _spawnDuration = 30;
+    //[SerializeField] float _spawnDuration = 30;
     [SerializeField] float _spawnInterval = 1;
     [SerializeField] Vector2 _spawnForce = Vector2.zero;
 
@@ -22,7 +22,7 @@ public class MailSpawnManager : MonoBehaviour
             if (value == true)
             {
                 InvokeRepeating("SpawnMail", 0, _spawnInterval);
-                Invoke("StopSpawn", _spawnDuration);
+                //Invoke("StopSpawn", _spawnDuration); // Spawn mails infinitely
             }
             else
             {
@@ -37,11 +37,6 @@ public class MailSpawnManager : MonoBehaviour
     void Awake()
     {
         sfx = GameObject.Find("SFX").GetComponent<SFX>();
-    }
-
-    void Start()
-    {
-        //IsSpawning = true;
     }
 
     public void HandleSpawningColor(MailType.Colors color)
@@ -67,8 +62,8 @@ public class MailSpawnManager : MonoBehaviour
         sfx.Play(Sound.name.MailShootsOut);
     }
 
-    void StopSpawn()
+    /*void StopSpawn()
     {
         IsSpawning = false;
-    }
+    }*/
 }

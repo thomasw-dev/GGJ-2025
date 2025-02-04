@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public  float moveSpeed = 10f;
     public Rigidbody2D rigidBody;
     public SpriteRenderer bodySprite;
+    [SerializeField] Transform cursor;
 
     private float horizontal;
     private float vertical;
@@ -40,6 +41,12 @@ public class Player : MonoBehaviour
         // Flip sprite on direction
         bodySprite.flipX = (horizontal < 0) ? true : false;
 
+        // Calculate shoot direction
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPosition.z = 0;
+        Vector3 playerPosition = transform.position;
+        playerPosition.z = 0;
+        Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
 
         if (Input.GetMouseButtonDown(0)) 
         {
@@ -48,16 +55,13 @@ public class Player : MonoBehaviour
 
             sfx.Play(Sound.name.ShootBubbles);
 
-            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPosition.z = 0;
-            Vector3 playerPosition = transform.position;
-            playerPosition.z = 0;
-            Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
-
             bubble.transform.position = transform.position + shootDirection;
 
             Vector3 playerVelocity = rigidBody.velocity;
             bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
         }
+
+        // Cursor look at mouse
+        cursor.rotation = Quaternion.LookRotation(mouseWorldPosition - cursor.position, Vector3.forward);
     }
 }

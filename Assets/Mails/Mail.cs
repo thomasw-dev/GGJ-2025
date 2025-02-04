@@ -15,10 +15,7 @@ public class Mail : MonoBehaviour
     Rigidbody2D rigidBody;
     CircleCollider2D col;
 
-    private void Start()
-    {
-        
-    }
+    float outOfBound = 10f;
 
     public void SetColor(MailType.Colors color)
     {
@@ -43,6 +40,14 @@ public class Mail : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
+    }
+
+    void Update()
+    {
+        if (Mathf.Abs(transform.position.x) >= outOfBound || Mathf.Abs(transform.position.y) >= outOfBound)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetInitialVelocity(Vector2 velocity)
