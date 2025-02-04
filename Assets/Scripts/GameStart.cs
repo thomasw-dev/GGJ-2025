@@ -18,7 +18,6 @@ public class GameStart : MonoBehaviour
 
     private void InitVolumeSettings()
     {
-        Debug.Log("Volume Set");
         audioMixer.SetFloat(Global.MasterVolumeKey, Global.GetMasterVolume());
         audioMixer.SetFloat(Global.MusicVolumeKey, Global.GetMusicVolume());
         audioMixer.SetFloat(Global.SFXVolumeKey, Global.GetSFXVolume());
