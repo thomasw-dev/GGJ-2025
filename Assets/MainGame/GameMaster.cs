@@ -73,7 +73,7 @@ public class GameMaster : MonoBehaviour
         {
             // If it is at the final phase, keep repeating the final phase
             // TODO: Game Win after the final phase?
-            if (phaseIndex < PhaseData.Phases.Count)
+            if (phaseIndex < PhaseData.Phases.Count - 1)
             {
                 phaseIndex++;
             }
