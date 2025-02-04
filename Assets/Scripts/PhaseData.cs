@@ -76,7 +76,7 @@ public static class PhaseData
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
-                new PhaseTruck(MailType.Colors.Yellow, 5, 10f)
+                new PhaseTruck(MailType.Colors.Yellow, 3, 15f)
             }
         ),
         new Phase( // 2
@@ -88,7 +88,7 @@ public static class PhaseData
             },
             new List<PhaseTruck>
             {
-                new PhaseTruck(MailType.Colors.Yellow, 5, 10f),
+                new PhaseTruck(MailType.Colors.Yellow, 3, 15f),
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None)
@@ -105,7 +105,7 @@ public static class PhaseData
             {
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
-                new PhaseTruck(MailType.Colors.Red, 5, 10f),
+                new PhaseTruck(MailType.Colors.Red, 3, 15f),
                 new PhaseTruck(MailType.Colors.None)
             }
         ),
@@ -120,7 +120,7 @@ public static class PhaseData
             {
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
-                new PhaseTruck(MailType.Colors.Blue, 5, 10f),
+                new PhaseTruck(MailType.Colors.Blue, 5, 15f),
                 new PhaseTruck(MailType.Colors.None)
             }
         ),
@@ -133,10 +133,10 @@ public static class PhaseData
             },
             new List<PhaseTruck>
             {
-                new PhaseTruck(MailType.Colors.Yellow, 5, 10f),
+                new PhaseTruck(MailType.Colors.Yellow, 5, 15f),
                 new PhaseTruck(MailType.Colors.None),
                 new PhaseTruck(MailType.Colors.None),
-                new PhaseTruck(MailType.Colors.Red, 5, 20f)
+                new PhaseTruck(MailType.Colors.Red, 5, 25f)
             }
         ),
         new Phase( // 6
@@ -178,9 +178,9 @@ public static class PhaseData
             },
             new List<PhaseTruck>
             {
-                new PhaseTruck(MailType.Colors.Yellow, 5, 10f),
                 new PhaseTruck(MailType.Colors.Yellow, 5, 15f),
-                new PhaseTruck(MailType.Colors.Blue, 5, 20f),
+                new PhaseTruck(MailType.Colors.Yellow, 5, 20f),
+                new PhaseTruck(MailType.Colors.Blue, 5, 25f),
                 new PhaseTruck(MailType.Colors.None)
             }
         ),
@@ -193,10 +193,10 @@ public static class PhaseData
             },
             new List<PhaseTruck>
             {
-                new PhaseTruck(MailType.Colors.Red, 5, 15f),
-                new PhaseTruck(MailType.Colors.Blue, 5, 20f),
+                new PhaseTruck(MailType.Colors.Red, 5, 20f),
+                new PhaseTruck(MailType.Colors.Blue, 5, 25f),
                 new PhaseTruck(MailType.Colors.None),
-                new PhaseTruck(MailType.Colors.Yellow, 5, 15f)
+                new PhaseTruck(MailType.Colors.Yellow, 5, 20f)
             }
         ),
         new Phase( // 10
@@ -208,10 +208,10 @@ public static class PhaseData
             },
             new List<PhaseTruck>
             {
-                new PhaseTruck(MailType.Colors.Yellow, 10, 20f),
-                new PhaseTruck(MailType.Colors.Red, 10, 20f),
-                new PhaseTruck(MailType.Colors.Blue, 10, 20f),
-                new PhaseTruck(MailType.Colors.Yellow, 10, 20f)
+                new PhaseTruck(MailType.Colors.Yellow, 10, 25f),
+                new PhaseTruck(MailType.Colors.Red, 10, 25f),
+                new PhaseTruck(MailType.Colors.Blue, 10, 25f),
+                new PhaseTruck(MailType.Colors.Yellow, 10, 25f)
             }
         )
     };
