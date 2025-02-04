@@ -23,7 +23,7 @@ public class GameMaster : MonoBehaviour
     {
         lives = 2;
         score = 0;
-        trucksCount = 2;
+        trucksCount = 0;
 
         StopAllCoroutines();
 

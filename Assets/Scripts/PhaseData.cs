@@ -67,9 +67,9 @@ public static class PhaseData
         new Phase( // 1
             new List<MailType.Colors>
             {
+                MailType.Colors.None,
                 MailType.Colors.Yellow,
-                MailType.Colors.Blue,
-                MailType.Colors.Red,
+                MailType.Colors.None,
             },
             new List<PhaseTruck>
             {
