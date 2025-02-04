@@ -14,6 +14,9 @@ public class GameMaster : MonoBehaviour
     [SerializeField] private int trucksCount = 2;
     [SerializeField] private int phaseIndex = 0;
 
+    // Allow setting custom phase index from main menu
+    public static int setPhaseIndex = 0;
+
     public List<MailSpawnManager> mailSlotsLevel;
     public List<Truck> truckSlotsLevel;
 
@@ -24,6 +27,7 @@ public class GameMaster : MonoBehaviour
     {
         lives = 3;
         score = 0;
+        phaseIndex = setPhaseIndex;
         StopAllCoroutines();
         StartCoroutine(RunPhaseRoutine());
     }
@@ -59,18 +63,6 @@ public class GameMaster : MonoBehaviour
                 truckSlotsLevel[t].SpawnTruck(phase.TruckSlots[t].Color, phase.TruckSlots[t].MailNeeded, phase.TruckSlots[t].TimeAllowed);
             }
         }
-    }
-
-    private int LoopIndex(int index, int max)
-    {
-        index++;
-
-        if (index > max)
-        {
-            index = 0;
-        }
-
-        return index;
     }
 
     public void HandleTruckDecrease()
