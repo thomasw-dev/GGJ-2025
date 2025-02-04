@@ -71,7 +71,12 @@ public class GameMaster : MonoBehaviour
 
         if (trucksCount <= 0)
         {
-            phaseIndex++;
+            // If it is at the final phase, keep repeating the final phase
+            // TODO: Game Win after the final phase?
+            if (phaseIndex < PhaseData.Phases.Count)
+            {
+                phaseIndex++;
+            }
             StartCoroutine(RunPhaseRoutine());
         }
     }

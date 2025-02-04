@@ -22,7 +22,7 @@ public class MailSpawnManager : MonoBehaviour
             if (value == true)
             {
                 InvokeRepeating("SpawnMail", 0, _spawnInterval);
-                //Invoke("StopSpawn", _spawnDuration); // Spawn mails infinitely
+                //Invoke("StopSpawn", _spawnDuration); // Spawn mails indefinitely
             }
             else
             {
@@ -47,6 +47,9 @@ public class MailSpawnManager : MonoBehaviour
         }
         else
         {
+            // Set to false first so it will cancel the current invoke,
+            // and start invoking again with the new mail color.
+            IsSpawning = false;
             _mailColor = color;
             IsSpawning = true;
         }
