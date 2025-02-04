@@ -464,6 +464,7 @@ MonoBehaviour:
   _isAcceptingMail: 1
   TimeAllowed: 10
   _timeRemaining: 10
+  _progressBar: {fileID: 2140633255086733249}
   _progressMask: {fileID: 3597593489262221424}
   TargetMailCount: 1
   _currentMailCount: 0

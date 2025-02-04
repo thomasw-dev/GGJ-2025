@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class Truck : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Truck : MonoBehaviour
     [SerializeField] bool _isAcceptingMail = true;
     public float TimeAllowed = 10f;
     [SerializeField] float _timeRemaining = 10f;
+    [SerializeField] Transform _progressBar;
     [SerializeField] Transform _progressMask;
     public int TargetMailCount = 1;
     [SerializeField] int _currentMailCount = 0;
@@ -24,6 +26,7 @@ public class Truck : MonoBehaviour
     bool _isArrived = false;
     float _spawnTime;
     bool _hurryUpSoundPlayed = false;
+    Vector3 _progressBarInitialPosition;
 
     public UnityEvent TruckFinishedEvent;
     public UnityEvent TruckFailedEvent;
@@ -38,6 +41,11 @@ public class Truck : MonoBehaviour
         sfx = GameObject.Find("SFX").GetComponent<SFX>();
     }
 
+    void Start()
+    {
+        _progressBarInitialPosition = _progressBar.position;
+    }
+
     public void SpawnTruck(MailType.Colors color, int mailNeeded, float timeAllowed)
     {
         _isSpawned = true;
@@ -46,6 +54,7 @@ public class Truck : MonoBehaviour
         _isArrived = false;
         _isAcceptingMail = false;
         animator.Play("TruckArrive");
+        _hurryUpSoundPlayed = false;
 
         _desiredColor = color;
         // Play the static animation of the correct color
@@ -86,18 +95,17 @@ public class Truck : MonoBehaviour
         {
             UpdateMailsRemainingTMP();
 
-            _timeRemaining = _spawnTime + TimeAllowed - Time.time;
+            _timeRemaining = _spawnTime + 1f + TimeAllowed - Time.time;
             UpdateProgressMask(_timeRemaining / TimeAllowed);
 
             // All mails delivered, truck finished
             if (_currentMailCount >= TargetMailCount)
             {
                 TruckFinishedEvent?.Invoke();
-                _isAcceptingMail = false;
                 animator.Play("TruckLeave");
                 InstantiateHappyFace();
                 sfx.Play(Sound.name.TruckShutsDoorLeaves);
-                _isSpawned = false;
+                ResetTruck();
             }
             else
             {
@@ -109,20 +117,26 @@ public class Truck : MonoBehaviour
                         sfx.Play(Sound.name.TruckHurryUp);
                         _hurryUpSoundPlayed = true;
                     }
+
+                    // Vibrate the progress bar
+                    Vector2 r = Random.insideUnitCircle * Method.Map(_timeRemaining, 0, TimeAllowed / 3, 0.1f, 0);
+                    _progressBar.transform.position = _progressBarInitialPosition + new Vector3(r.x, r.y, 0);
                 }
 
                 // Timeout, truck failed
                 if (_timeRemaining <= 0)
                 {
                     TruckFailedEvent?.Invoke();
-                    _isAcceptingMail = false;
                     animator.Play("TruckLeave");
                     InstantiateAngryFace();
                     sfx.Play(Sound.name.TruckShutsDoorLeaves);
-                    _isSpawned = false;
+                    ResetTruck();
                 }
             }
         }
+
+        // Only show progress bar when the truck is accepting mail
+        _progressBar.gameObject.SetActive(_isAcceptingMail);
     }
 
     void UpdateMailsRemainingTMP()
@@ -143,13 +157,13 @@ public class Truck : MonoBehaviour
     void InstantiateHappyFace()
     {
         GameObject happyFace = Instantiate(_happyFacePrefab, transform.Find("TruckSprite"));
-        happyFace.transform.Translate(Vector3.left * 1.5f, Space.Self);
+        happyFace.transform.Translate(Vector3.left * 1.25f, Space.Self);
     }
 
     void InstantiateAngryFace()
     {
         GameObject angryFace = Instantiate(_angryFacePrefab, transform.Find("TruckSprite"));
-        angryFace.transform.Translate(Vector3.left * 1.5f, Space.Self);
+        angryFace.transform.Translate(Vector3.left * 1.25f, Space.Self);
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -178,5 +192,14 @@ public class Truck : MonoBehaviour
                 Destroy(col.gameObject);
             }
         }
+    }
+
+    void ResetTruck()
+    {
+        _isSpawned = false;
+        _isAcceptingMail = false;
+        _hurryUpSoundPlayed = false;
+        _progressBar.transform.position = _progressBarInitialPosition;
+        _progressMask.localPosition = Vector3.zero;
     }
 }
