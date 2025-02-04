@@ -6,7 +6,7 @@ public class TruckFace : MonoBehaviour
 {
     void Start()
     {
-        // Destroy self in 1.5 seconds upon instantiated
-        Destroy(gameObject, 1.5f);
+        // Destroy self in 1 second upon instantiated
+        Destroy(gameObject, 1f);
     }
 }
