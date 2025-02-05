@@ -7,6 +7,11 @@ public class Mail : MonoBehaviour
     public Sprite spriteRed;
     public Sprite spriteBlue;
     public Sprite spriteYellow;
+
+    public Sprite spriteOrange;
+    public Sprite spriteGreen;
+    public Sprite spritePurple;
+
     public SpriteRenderer spriteRenderer;
 
     public bool IsCaptured = false;
@@ -30,6 +35,15 @@ public class Mail : MonoBehaviour
                 break;
             case MailType.Colors.Blue:
                 spriteRenderer.sprite = spriteBlue;
+                break;
+            case MailType.Colors.Orange:
+                spriteRenderer.sprite = spriteOrange;
+                break;
+            case MailType.Colors.Green:
+                spriteRenderer.sprite = spriteGreen;
+                break;
+            case MailType.Colors.Purple:
+                spriteRenderer.sprite = spritePurple;
                 break;
             default:
                 break;

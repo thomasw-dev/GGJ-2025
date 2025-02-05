@@ -19,7 +19,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] TMP_Text scoreDisplay;
 
     // Allow setting custom phase index from main menu
-    public static int setPhaseIndex = 0;
+    public static int setPhaseIndex = 9;
 
     public List<MailSpawnManager> mailSlotsLevel;
     public List<Truck> truckSlotsLevel;

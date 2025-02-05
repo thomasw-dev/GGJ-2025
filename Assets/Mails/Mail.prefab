@@ -196,6 +196,9 @@ MonoBehaviour:
   spriteRed: {fileID: 21300000, guid: cb5f07e5f14ce5945a9258d4f841c04d, type: 3}
   spriteBlue: {fileID: 21300000, guid: 69302b51b76761e4d955d47e5384ea4c, type: 3}
   spriteYellow: {fileID: 21300000, guid: 4931e11856033f644b8ee62296008adc, type: 3}
+  spriteOrange: {fileID: 21300000, guid: e0e6939b13b933b45958dcab204293a6, type: 3}
+  spriteGreen: {fileID: 21300000, guid: d27313b19f9242b4db507e355072e531, type: 3}
+  spritePurple: {fileID: 21300000, guid: f9b0a1a2e9faf4f4fb3df8456c8a2613, type: 3}
   spriteRenderer: {fileID: 2640430759415302347}
   IsCaptured: 0
   Color: 3
