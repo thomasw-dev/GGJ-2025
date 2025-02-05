@@ -61,6 +61,9 @@ public class Truck : MonoBehaviour
         if (_desiredColor == MailType.Colors.Red) _truckSprite.Play("TruckStatic_Red");
         if (_desiredColor == MailType.Colors.Yellow) _truckSprite.Play("TruckStatic_Yellow");
         if (_desiredColor == MailType.Colors.Blue) _truckSprite.Play("TruckStatic_Blue");
+        if (_desiredColor == MailType.Colors.Orange) _truckSprite.Play("TruckStatic_Orange");
+        if (_desiredColor == MailType.Colors.Green) _truckSprite.Play("TruckStatic_Green");
+        if (_desiredColor == MailType.Colors.Purple) _truckSprite.Play("TruckStatic_Purple");
 
         TargetMailCount = mailNeeded;
         _currentMailCount = 0;
@@ -86,6 +89,9 @@ public class Truck : MonoBehaviour
                 if (_desiredColor == MailType.Colors.Red) _truckSprite.Play("TruckIdle_Red");
                 if (_desiredColor == MailType.Colors.Yellow) _truckSprite.Play("TruckIdle_Yellow");
                 if (_desiredColor == MailType.Colors.Blue) _truckSprite.Play("TruckIdle_Blue");
+                if (_desiredColor == MailType.Colors.Orange) _truckSprite.Play("TruckIdle_Orange");
+                if (_desiredColor == MailType.Colors.Green) _truckSprite.Play("TruckIdle_Green");
+                if (_desiredColor == MailType.Colors.Purple) _truckSprite.Play("TruckIdle_Purple");
 
                 sfx.Play(Sound.name.TruckEnters);
             }

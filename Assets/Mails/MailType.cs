@@ -11,7 +11,7 @@ public class MailType
         Purple
     }
 
-    public Colors Merge(Colors c1, Colors c2)
+    public static Colors TryMergeColors(Colors c1, Colors c2)
     {
         if ((c1 == Colors.Red && c2 == Colors.Yellow) || (c2 == Colors.Red && c1 == Colors.Yellow))
             return Colors.Orange;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7776112887477409455}
   - component: {fileID: 2640430759415302347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MailSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2054181702635564849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8749279475881586142}
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 6042094555580947672}
   - component: {fileID: 4741063068899159182}
   - component: {fileID: -3301257804025659684}
-  m_Layer: 0
+  - component: {fileID: 1641826880733140346}
+  m_Layer: 9
   m_Name: Mail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +181,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.375
 --- !u!114 &-3301257804025659684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +197,44 @@ MonoBehaviour:
   spriteRed: {fileID: 21300000, guid: cb5f07e5f14ce5945a9258d4f841c04d, type: 3}
   spriteBlue: {fileID: 21300000, guid: 69302b51b76761e4d955d47e5384ea4c, type: 3}
   spriteYellow: {fileID: 21300000, guid: 4931e11856033f644b8ee62296008adc, type: 3}
+  spriteOrange: {fileID: 21300000, guid: e0e6939b13b933b45958dcab204293a6, type: 3}
+  spriteGreen: {fileID: 21300000, guid: d27313b19f9242b4db507e355072e531, type: 3}
+  spritePurple: {fileID: 21300000, guid: f9b0a1a2e9faf4f4fb3df8456c8a2613, type: 3}
   spriteRenderer: {fileID: 2640430759415302347}
   IsCaptured: 0
-  Color: 3
+  Color: 0
+--- !u!58 &1641826880733140346
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5695688574028188706}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 311
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.375
