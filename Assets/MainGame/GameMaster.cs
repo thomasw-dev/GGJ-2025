@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GameMaster : MonoBehaviour
 {
-    public static int lives = 3;
+    public static int lives = 4;
     public static int score = 0;
 
-    public int currentLives = 3; // view lives in Inspector
+    public int currentLives = 4; // view lives in Inspector
     public int currentScore = 0; // view score in Inspector
 
     [SerializeField] private int trucksCount = 2;
     [SerializeField] private int phaseIndex = 0;
+
+    [SerializeField] TMP_Text phaseDisplay;
+    [SerializeField] TMP_Text scoreDisplay;
 
     // Allow setting custom phase index from main menu
     public static int setPhaseIndex = 0;
@@ -25,7 +29,7 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
-        lives = 3;
+        lives = 4;
         score = 0;
         phaseIndex = setPhaseIndex;
         StopAllCoroutines();
@@ -36,6 +40,9 @@ public class GameMaster : MonoBehaviour
     {
         currentLives = lives;
         currentScore = score;
+
+        phaseDisplay.text = $"Phase {phaseIndex + 1}";
+        scoreDisplay.text = score.ToString();
     }
 
     IEnumerator RunPhaseRoutine()
