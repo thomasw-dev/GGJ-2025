@@ -75,4 +75,27 @@ public class Mail : MonoBehaviour
         Destroy(rigidBody);
         col.isTrigger = true;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // If it is not captured, touches a mail, and that mail is not captured either
+        if (!IsCaptured && col.transform.TryGetComponent(out Mail mail) && !mail.IsCaptured)
+        {
+            // If self is to the left of the other mail -> be the merge remainder
+            if (transform.position.x < col.transform.position.x)
+            {
+                // If their colors are able to merge
+                MailType.Colors mergedColor = MailType.TryMergeColors(Color, mail.Color);
+                if (mergedColor != MailType.Colors.None)
+                {
+                    // Change mail color and move self
+                    SetColor(mergedColor);
+                    Method.TransformMergeRemainder(transform, rigidBody, col.transform, col.GetComponent<Rigidbody2D>());
+
+                    // Destroy the other mail
+                    Destroy(col.gameObject);
+                }
+            }
+        }
+    }
 }

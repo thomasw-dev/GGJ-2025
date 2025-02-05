@@ -40,43 +40,34 @@ public class SoapBubble : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        // If the bubble doesn't have a mail yet
+        // If the bubble hasn't captured a mail yet
         if (CapturedMail == null)
         {
-            // If it touches any mail
-            if (col.transform.TryGetComponent(out Mail mail))
+            // If it touches a mail, and the mail is not captured
+            if (col.transform.TryGetComponent(out Mail mail) && !mail.IsCaptured)
             {
-                // If it is not a captured mail
-                if (!mail.IsCaptured)
-                {
-                    // Set itself as the parent for the mail
-                    mail.transform.SetParent(transform);
-                    mail.CapturedByBubble();
-                    CapturedMail = mail;
-                }
+                // Set itself as the parent for the mail
+                mail.transform.SetParent(transform);
+                mail.CapturedByBubble();
+                CapturedMail = mail;
             }
         }
         // If the bubble has captured a mail: merge with mail or bubble-mail
         else
         {
-            // If it touches a mail of a different primary color
-            if (col.transform.TryGetComponent(out Mail mail))
+            // If it touches a mail of a different primary color, and the mail is not captured
+            if (col.transform.TryGetComponent(out Mail mail) && !mail.IsCaptured)
             {
-                // If it is not a captured mail
-                if (!mail.IsCaptured)
+                // If their colors are able to merge
+                MailType.Colors mergedColor = MailType.TryMergeColors(CapturedMail.Color, mail.Color);
+                if (mergedColor != MailType.Colors.None)
                 {
-                    MailType.Colors mergedColor = MailType.TryMergeColors(CapturedMail.Color, mail.Color);
+                    // Change captured mail color and move self
+                    CapturedMail.SetColor(mergedColor);
+                    Method.TransformMergeRemainder(transform, rigidBody, col.transform, col.GetComponent<Rigidbody2D>());
 
-                    // If their colors are able to merge
-                    if (mergedColor != MailType.Colors.None)
-                    {
-                        // Change captured mail color and move self
-                        CapturedMail.SetColor(mergedColor);
-                        Method.TransformMergeRemainder(transform, rigidBody, col.transform, col.GetComponent<Rigidbody2D>());
-
-                        // Destroy that mail being merged
-                        Destroy(col.gameObject);
-                    }
+                    // Destroy that mail
+                    Destroy(col.gameObject);
                 }
             }
 
@@ -86,17 +77,15 @@ public class SoapBubble : MonoBehaviour
                 // If the bubble has a captured mail
                 if (soapBubble.CapturedMail != null)
                 {
-                    // If self is on the left of the merging object -> be the merge remainder
+                    // If self is to the left of the other bubble -> be the merge remainder
                     if (transform.position.x < col.transform.position.x)
                     {
-                        MailType.Colors mergedColor = MailType.TryMergeColors(CapturedMail.Color, soapBubble.CapturedMail.Color);
-
                         // If their colors are able to merge
+                        MailType.Colors mergedColor = MailType.TryMergeColors(CapturedMail.Color, soapBubble.CapturedMail.Color);
                         if (mergedColor != MailType.Colors.None)
                         {
                             // Change captured mail color and move self
                             CapturedMail.SetColor(mergedColor);
-
                             Method.TransformMergeRemainder(transform, rigidBody, col.transform, col.GetComponent<Rigidbody2D>());
 
                             // Destroy the other bubble
