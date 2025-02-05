@@ -24,4 +24,12 @@ public class MailType
 
         return Colors.None;
     }
+
+    // Toggle merge color
+    public static bool mergeColorEnabled = true;
+
+    public static void ToggleMergeColor(bool state)
+    {
+
+    }
 }

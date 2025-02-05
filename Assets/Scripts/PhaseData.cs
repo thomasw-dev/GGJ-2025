@@ -132,7 +132,7 @@ public static class PhaseData
         new Phase( // 6
             new List<MailType.Colors>
             {
-                MailType.Colors.Yellow,   MailType.Colors.Blue,   MailType.Colors.None,
+                MailType.Colors.Blue,   MailType.Colors.None,   MailType.Colors.Yellow,
             },
             new List<PhaseTruck>
             {
@@ -192,7 +192,7 @@ public static class PhaseData
             new List<PhaseTruck>
             {
                 new PhaseTruck(MailType.Colors.Orange, 5, 180f),new PhaseTruck(MailType.Colors.Green, 5, 180f),
-                new PhaseTruck(MailType.Colors.Purple, 5, 180f),new PhaseTruck(MailType.Colors.Purple, 5, 180f)
+                new PhaseTruck(MailType.Colors.Purple, 5, 180f),new PhaseTruck(MailType.Colors.Red, 5, 180f)
             }
         )
     };
