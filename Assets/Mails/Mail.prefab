@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7776112887477409455}
   - component: {fileID: 2640430759415302347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MailSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 6042094555580947672}
   - component: {fileID: 4741063068899159182}
   - component: {fileID: -3301257804025659684}
-  - component: {fileID: 2836598619713905381}
-  m_Layer: 0
+  - component: {fileID: 1641826880733140346}
+  m_Layer: 9
   m_Name: Mail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2640430759415302347}
   IsCaptured: 0
   Color: 0
---- !u!58 &2836598619713905381
+--- !u!58 &1641826880733140346
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,10 +215,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 311
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
