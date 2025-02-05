@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
             sfx.Play(Sound.name.ShootBubbles);
 
-            bubble.transform.position = transform.position + shootDirection;
+            bubble.transform.position = transform.position;
 
             Vector3 playerVelocity = rigidBody.velocity;
             bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
