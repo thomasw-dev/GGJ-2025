@@ -52,6 +52,9 @@ public class SoapBubble : MonoBehaviour
                 CapturedMail = mail;
             }
         }
+
+        return; // Disable color merge
+        /*
         // If the bubble has captured a mail: merge with mail or bubble-mail
         else
         {
@@ -95,5 +98,6 @@ public class SoapBubble : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

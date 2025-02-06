@@ -78,6 +78,8 @@ public class Mail : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        return; // Disable color merge
+        /*
         // If it is not captured, touches a mail, and that mail is not captured either
         if (!IsCaptured && col.transform.TryGetComponent(out Mail mail) && !mail.IsCaptured)
         {
@@ -97,5 +99,6 @@ public class Mail : MonoBehaviour
                 }
             }
         }
+        */
     }
 }
