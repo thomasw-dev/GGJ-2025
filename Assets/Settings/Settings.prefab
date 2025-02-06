@@ -1929,6 +1929,7 @@ GameObject:
   - component: {fileID: 7843928504784481404}
   - component: {fileID: 8502997145892672530}
   - component: {fileID: 8295670644632480646}
+  - component: {fileID: 3858463390948293643}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -2014,6 +2015,20 @@ MonoBehaviour:
   masterSlider: {fileID: 5171049145919288451}
   musicSlider: {fileID: 4999779859021738149}
   sfxSlider: {fileID: 3297185410011702001}
+--- !u!114 &3858463390948293643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471175301406167712}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d32cab603b5f4a4f93714699300a02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phaseSlider: {fileID: 0}
+  mergeColorToggle: {fileID: 0}
 --- !u!1 &5491925216578022526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2069,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3503162151164092992

@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhaseSliderMergeColorToggler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject phaseSlider;
+    [SerializeField] GameObject mergeColorToggle;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "MainMenu")
+        {
+            phaseSlider.SetActive(true);
+            mergeColorToggle.SetActive(false);
+        }
+        if (currentScene == "MainGame")
+        {
+            phaseSlider.SetActive(false);
+            mergeColorToggle.SetActive(true);
+        }
     }
 }
