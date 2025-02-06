@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void GetSliderValue()
+    public void GetPhaseSliderValue()
     {
         GameMaster.setPhaseIndex = (int)phaseSlider.value;
     }

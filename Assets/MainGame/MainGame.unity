@@ -2199,6 +2199,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1190894941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7632740613877980095, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+  m_PrefabInstance: {fileID: 5263949054265607967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1229809508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2805396465466919552, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
@@ -2258,6 +2269,7 @@ MonoBehaviour:
   currentScore: 0
   trucksCount: 0
   phaseIndex: 0
+  phaseSlider: {fileID: 1190894941}
   phaseDisplay: {fileID: 2133573771}
   scoreDisplay: {fileID: 2028903069}
   mailSlotsLevel:
@@ -7026,6 +7038,18 @@ PrefabInstance:
     - target: {fileID: 7512343560775977278, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632740613877980095, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1230570247}
+    - target: {fileID: 7632740613877980095, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetPhaseSliderValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632740613877980095, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7706873808908383114, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: m_AnchorMax.y
