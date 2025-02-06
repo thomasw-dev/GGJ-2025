@@ -183,17 +183,17 @@ public static class PhaseData
                 new PhaseTruck(MailType.Colors.Yellow, 4, 60f), new PhaseTruck(MailType.Colors.Red, 6, 60f),
                 new PhaseTruck(MailType.Colors.Blue, 8, 60f),   new PhaseTruck(MailType.Colors.Yellow, 10, 60f)
             }
-        ),
-        new Phase( // 11 (merge color)
-            new List<MailType.Colors>
-            {
-                MailType.Colors.Red,   MailType.Colors.Yellow,    MailType.Colors.Blue,
-            },
-            new List<PhaseTruck>
-            {
-                new PhaseTruck(MailType.Colors.Orange, 5, 180f),new PhaseTruck(MailType.Colors.Green, 5, 180f),
-                new PhaseTruck(MailType.Colors.Purple, 5, 180f),new PhaseTruck(MailType.Colors.Red, 5, 180f)
-            }
         )
+        //new Phase( // 11 (merge color)
+        //    new List<MailType.Colors>
+        //    {
+        //        MailType.Colors.Red,   MailType.Colors.Yellow,    MailType.Colors.Blue,
+        //    },
+        //    new List<PhaseTruck>
+        //    {
+        //        new PhaseTruck(MailType.Colors.Orange, 5, 180f),new PhaseTruck(MailType.Colors.Green, 5, 180f),
+        //        new PhaseTruck(MailType.Colors.Purple, 5, 180f),new PhaseTruck(MailType.Colors.Red, 5, 180f)
+        //    }
+        //)
     };
 }
