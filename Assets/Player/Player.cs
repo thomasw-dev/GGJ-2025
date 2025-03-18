@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
-    public  float moveSpeed = 10f;
+    public float moveSpeed = 10f;
     public Rigidbody2D rigidBody;
     public SpriteRenderer bodySprite;
     [SerializeField] Transform cursor;
@@ -39,8 +40,16 @@ public class Player : MonoBehaviour
     {
         if (Global.isGamePaused) return;
 
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        if (Global.useTouchInput)
+        {
+            horizontal = TouchInput.delta.x;
+            vertical = TouchInput.delta.y;
+        }
+        else
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+        }
         rigidBody.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
 
         // Flip sprite on direction
@@ -53,7 +62,7 @@ public class Player : MonoBehaviour
         playerPosition.z = 0;
         Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             // Shoot Bubble
             SoapBubble bubble = Instantiate(soapBubble, transform.parent);

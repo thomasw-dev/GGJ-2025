@@ -5,6 +5,7 @@ using UnityEngine;
 public static class Global
 {
     public static bool isGamePaused = false;
+    public static bool useTouchInput = false;
 
     public const string MasterVolumeKey = "MasterVolume";
     public const string MusicVolumeKey = "MusicVolume";
