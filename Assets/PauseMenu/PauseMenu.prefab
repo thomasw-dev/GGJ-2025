@@ -204,6 +204,7 @@ MonoBehaviour:
   pauseButtonSprites:
   - {fileID: 21300000, guid: f8e1679c490616a459c50923f9abc6f4, type: 3}
   - {fileID: 21300000, guid: b6983e941848ab145bd6b1e791d47036, type: 3}
+  pauseSound: {fileID: 0}
 --- !u!1 &3544467545184291231
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
