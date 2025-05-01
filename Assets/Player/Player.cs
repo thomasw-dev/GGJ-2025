@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidBody;
     public SpriteRenderer bodySprite;
     [SerializeField] Transform cursor;
+    [SerializeField] Joystick joystickMove;
+    [SerializeField] Joystick joystickShoot;
 
     private float horizontal;
     private float vertical;
@@ -40,10 +42,11 @@ public class Player : MonoBehaviour
     {
         if (Global.isGamePaused) return;
 
+        // Player movement
         if (Global.useTouchInput)
         {
-            horizontal = TouchInput.delta.x;
-            vertical = TouchInput.delta.y;
+            horizontal = joystickMove.Direction.x;
+            vertical = joystickMove.Direction.y;
         }
         else
         {
@@ -52,35 +55,74 @@ public class Player : MonoBehaviour
         }
         rigidBody.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
 
-        // Flip sprite on direction
-        bodySprite.flipX = (horizontal < 0) ? true : false;
-
-        // Calculate shoot direction
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0;
-        Vector3 playerPosition = transform.position;
-        playerPosition.z = 0;
-        Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
-
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            // Shoot Bubble
-            SoapBubble bubble = Instantiate(soapBubble, transform.parent);
-
-            sfx.Play(Sound.name.ShootBubbles);
-
-            bubble.transform.position = transform.position;
-
-            Vector3 playerVelocity = rigidBody.velocity;
-            bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
-        }
-
-        // Cursor look at mouse
-        cursor.rotation = Quaternion.LookRotation(mouseWorldPosition - cursor.position, Vector3.forward);
-
         // Player position boundaries
         float boundedPosX = Mathf.Clamp(transform.position.x, posBoundMinX, posBoundMaxX);
         float boundedPosY = Mathf.Clamp(transform.position.y, posBoundMinY, posBoundMaxY);
         transform.position = new Vector3(boundedPosX, boundedPosY, transform.position.z);
+
+        // Flip sprite on direction
+        bodySprite.flipX = (horizontal < 0) ? true : false;
+
+        // Calculate shoot direction
+        Vector3 shootDirection;
+        if (Global.useTouchInput)
+        {
+            shootDirection = joystickShoot.Direction;
+        }
+        else
+        {
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPosition.z = 0;
+            Vector3 playerPosition = transform.position;
+            playerPosition.z = 0;
+            shootDirection = (mouseWorldPosition - playerPosition).normalized;
+        }
+
+        // Cursor direction
+        if (Global.useTouchInput)
+        {
+            if (shootDirection == Vector3.zero)
+            {
+                cursor.rotation = Quaternion.identity;
+            }
+            else
+            {
+                cursor.rotation = Quaternion.LookRotation(joystickShoot.Direction, Vector3.forward);
+            }
+        }
+        else
+        {
+            cursor.rotation = Quaternion.LookRotation(shootDirection, Vector3.forward);
+        }
+
+        // Shoot bubble
+        if (Global.useTouchInput)
+        {
+            if (shootDirection != Vector3.zero)
+            {
+                SoapBubble bubble = Instantiate(soapBubble, transform.parent);
+
+                sfx.Play(Sound.name.ShootBubbles);
+
+                bubble.transform.position = transform.position;
+
+                Vector3 playerVelocity = rigidBody.velocity;
+                bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0)) // && !EventSystem.current.IsPointerOverGameObject()
+            {
+                SoapBubble bubble = Instantiate(soapBubble, transform.parent);
+
+                sfx.Play(Sound.name.ShootBubbles);
+
+                bubble.transform.position = transform.position;
+
+                Vector3 playerVelocity = rigidBody.velocity;
+                bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+            }
+        }
     }
 }

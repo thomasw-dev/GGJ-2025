@@ -9,6 +9,13 @@ public class TouchInputToggler : MonoBehaviour
     [SerializeField] GameObject touchInput;
     [SerializeField] GameObject hintOverlay;
     bool showHintOverlayWhenUnpaused = false;
+    [SerializeField] Toggle toggle;
+
+    void Start()
+    {
+        // Manually toggle it to trigger OnValueChanged()
+        toggle.isOn = true;
+    }
 
     void Update()
     {
