@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -11,12 +12,37 @@ public class Player : MonoBehaviour
     [SerializeField] Transform cursor;
     [SerializeField] Joystick joystickMove;
     [SerializeField] Joystick joystickShoot;
+    [SerializeField] GameObject shootClickArea;
 
     private float horizontal;
     private float vertical;
 
     public SoapBubble soapBubble;
     public float soapBubbleSpeed = 5;
+    public float fireRate = 0.25f;
+    Vector3 shootDirection;
+
+    bool isShooting = false;
+    public bool IsShooting
+    {
+        get => isShooting;
+        set
+        {
+            // Invoke/cancel shooting on value change
+            if (isShooting != value)
+            {
+                if (value == true)
+                {
+                    InvokeRepeating("ShootBubble", 0f, fireRate);
+                }
+                else
+                {
+                    CancelInvoke("ShootBubble");
+                }
+            }
+            isShooting = value;
+        }
+    }
 
     float posBoundMaxX = 7.5f;
     float posBoundMinX = -7.5f;
@@ -64,7 +90,6 @@ public class Player : MonoBehaviour
         bodySprite.flipX = (horizontal < 0) ? true : false;
 
         // Calculate shoot direction
-        Vector3 shootDirection;
         if (Global.useTouchInput)
         {
             shootDirection = joystickShoot.Direction;
@@ -100,29 +125,21 @@ public class Player : MonoBehaviour
         {
             if (shootDirection != Vector3.zero)
             {
-                SoapBubble bubble = Instantiate(soapBubble, transform.parent);
-
-                sfx.Play(Sound.name.ShootBubbles);
-
-                bubble.transform.position = transform.position;
-
-                Vector3 playerVelocity = rigidBody.velocity;
-                bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+                IsShooting = true;
             }
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0)) // && !EventSystem.current.IsPointerOverGameObject()
+            else
             {
-                SoapBubble bubble = Instantiate(soapBubble, transform.parent);
-
-                sfx.Play(Sound.name.ShootBubbles);
-
-                bubble.transform.position = transform.position;
-
-                Vector3 playerVelocity = rigidBody.velocity;
-                bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
+                IsShooting = false;
             }
         }
+    }
+
+    public void ShootBubble()
+    {
+        SoapBubble bubble = Instantiate(soapBubble, transform.parent);
+        sfx.Play(Sound.name.ShootBubbles);
+        bubble.transform.position = transform.position;
+        Vector3 playerVelocity = rigidBody.velocity;
+        bubble.rigidBody.AddForce(shootDirection * soapBubbleSpeed, ForceMode2D.Impulse);
     }
 }
