@@ -4408,7 +4408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f014a98d1bc599a4a9d6186f10671893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLives: 3
+  currentLives: 4
   currentScore: 0
   trucksCount: 0
   phaseIndex: 0
@@ -4428,7 +4428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1229809508}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: ShowScreen
+        m_MethodName: ShowLoseScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4444,6 +4444,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1297591656}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
         m_MethodName: LoseLife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GameWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1229809508}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: ShowWinScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8861,7 +8876,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 70, y: 24}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2133573771
 MonoBehaviour:
@@ -8883,7 +8898,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Phase 0
+  m_text: Phase 0 / 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a511e022acded74cb7ac3213838693c, type: 2}
   m_sharedMaterial: {fileID: 8550337529982642851, guid: 7a511e022acded74cb7ac3213838693c, type: 2}
@@ -9101,18 +9116,6 @@ PrefabInstance:
     - target: {fileID: 582958339919991059, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134865320568687842, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1229809508}
-    - target: {fileID: 1134865320568687842, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Restart
-      objectReference: {fileID: 0}
-    - target: {fileID: 1134865320568687842, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameOver, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2328700146759758175, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9365,22 +9368,6 @@ PrefabInstance:
     - target: {fileID: 8600687650473893631, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826780234165550098, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826780234165550098, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826780234165550098, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826780234165550098, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

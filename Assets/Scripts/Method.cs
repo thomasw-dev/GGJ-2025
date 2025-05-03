@@ -19,4 +19,6 @@ public class Method
         // Set velocity for rb1
         rb1.velocity = (rb1.velocity + rb2.velocity) / 2;
     }
+
+    public static Color HexColor(string hex) => ColorUtility.TryParseHtmlString(hex, out Color color) ? color : Color.white;
 }

@@ -27,6 +27,7 @@ public class GameMaster : MonoBehaviour
 
     public UnityEvent GameOver;
     public UnityEvent LifeLost;
+    public UnityEvent GameWin;
 
     void Start()
     {
@@ -42,14 +43,13 @@ public class GameMaster : MonoBehaviour
         currentLives = lives;
         currentScore = score;
 
-        phaseDisplay.text = $"Phase {phaseIndex + 1}";
+        phaseDisplay.text = $"Phase {phaseIndex + 1} / {PhaseData.Phases.Count}";
         scoreDisplay.text = score.ToString();
     }
 
     IEnumerator RunPhaseRoutine()
     {
         yield return new WaitForSeconds(1);
-
         RunPhase();
     }
 
@@ -57,7 +57,7 @@ public class GameMaster : MonoBehaviour
     {
         PhaseData.Phase phase = PhaseData.Phases[phaseIndex];
 
-        for (int m = 0; m < phase.MailSlots.Count; m++) 
+        for (int m = 0; m < phase.MailSlots.Count; m++)
         {
             mailSlotsLevel[m].HandleSpawningColor(phase.MailSlots[m]);
         }
@@ -79,13 +79,15 @@ public class GameMaster : MonoBehaviour
 
         if (trucksCount <= 0)
         {
-            // If it is at the final phase, keep repeating the final phase
-            // TODO: Game Win after the final phase?
             if (phaseIndex < PhaseData.Phases.Count - 1)
             {
                 phaseIndex++;
+                StartCoroutine(RunPhaseRoutine());
             }
-            StartCoroutine(RunPhaseRoutine());
+            else
+            {
+                StartCoroutine(RunWinRoutine());
+            }
         }
     }
 
@@ -110,5 +112,11 @@ public class GameMaster : MonoBehaviour
     public void MailGotten()
     {
         score += 100;
+    }
+
+    IEnumerator RunWinRoutine()
+    {
+        yield return new WaitForSeconds(1);
+        GameWin?.Invoke();
     }
 }
