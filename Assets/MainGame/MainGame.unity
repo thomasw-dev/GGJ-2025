@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4, type: 3}
     - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_Color.a
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3908,7 +3908,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4, type: 3}
     - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_Color.a
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4311,29 +4311,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192945309}
-  - component: {fileID: 1192945308}
+  - component: {fileID: 1192945310}
   m_Layer: 0
-  m_Name: TouchInputToggler
+  m_Name: InputToggler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1192945308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192945307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acda9428fcb685e4d9d813ee1439c189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  touchInput: {fileID: 1867558322}
-  hintOverlay: {fileID: 7987012724021038495}
-  toggle: {fileID: 306467105}
 --- !u!4 &1192945309
 Transform:
   m_ObjectHideFlags: 0
@@ -4349,6 +4334,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192945310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192945307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9359bab71bde1e4794d7d40eba313fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchInput: {fileID: 1867558322}
+  hintOverlay: {fileID: 7987012724021038495}
+  keyboardButton: {fileID: 5263949054265607972}
+  touchButton: {fileID: 5263949054265607971}
+  buttonSprites:
+  - {fileID: 21300000, guid: 1577ae71b4b8e8a439fb1c51d4a6e15e, type: 3}
+  - {fileID: 21300000, guid: ca85db028fac3a44eabdd2f77a5d59e8, type: 3}
 --- !u!114 &1229809508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2805396465466919552, guid: d2c24f4eb60f6eb4f91586053454ba6d, type: 3}
@@ -9777,7 +9781,7 @@ PrefabInstance:
     - target: {fileID: 8906849910172113257, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1192945308}
+      objectReference: {fileID: 0}
     - target: {fileID: 8906849910172113257, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnToggleChanged
@@ -9831,6 +9835,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &5263949054265607971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7883818925476476706, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+  m_PrefabInstance: {fileID: 5263949054265607967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5263949054265607972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7829795381071836409, guid: 0c6a7fb45b159d94baeaabebd6b7dcd9, type: 3}
+  m_PrefabInstance: {fileID: 5263949054265607967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7535473667419459261
 RectTransform:
   m_ObjectHideFlags: 0
