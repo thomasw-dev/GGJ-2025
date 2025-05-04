@@ -12,6 +12,7 @@ public class InputToggler : MonoBehaviour
     [SerializeField] Sprite[] buttonSprites;
     Image keyboardButtonSprite;
     Image touchButtonSprite;
+    KeyCode[] detectKeyCodes;
 
     void Awake()
     {
@@ -24,6 +25,15 @@ public class InputToggler : MonoBehaviour
 
     void Start()
     {
+        detectKeyCodes = new KeyCode[]
+        {
+            KeyCode.W,
+            KeyCode.A,
+            KeyCode.S,
+            KeyCode.D,
+            KeyCode.Space
+        };
+
         // Set whether to use touch input by default
         SetInput(true);
     }
@@ -37,10 +47,19 @@ public class InputToggler : MonoBehaviour
         }
 
         // Clicking anywhere will hide the hint overlay
-        if (hintOverlay.activeSelf && Input.GetMouseButtonDown(0))
+        if (hintOverlay.activeSelf && Input.GetMouseButtonDown(0) || !Global.useTouchInput)
         {
             hintOverlay.SetActive(false);
             showHintOverlayWhenUnpaused = false;
+        }
+
+        // Switch to keyboard input if key input is detected
+        for (int i = 0; i < detectKeyCodes.Length; i++)
+        {
+            if (Input.GetKeyDown(detectKeyCodes[i]))
+            {
+                SetInput(false);
+            }
         }
     }
 
