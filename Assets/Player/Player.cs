@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    public static bool posBoundEnabled = true;
     float posBoundMaxX = 7.5f;
     float posBoundMinX = -7.5f;
     float posBoundMaxY = 4.25f;
@@ -81,10 +82,13 @@ public class Player : MonoBehaviour
         }
         rigidBody.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
 
-        // Player position boundaries
-        float boundedPosX = Mathf.Clamp(transform.position.x, posBoundMinX, posBoundMaxX);
-        float boundedPosY = Mathf.Clamp(transform.position.y, posBoundMinY, posBoundMaxY);
-        transform.position = new Vector3(boundedPosX, boundedPosY, transform.position.z);
+        // Player position boundaries --- Disabled for TitleScreen
+        if (posBoundEnabled)
+        {
+            float boundedPosX = Mathf.Clamp(transform.position.x, posBoundMinX, posBoundMaxX);
+            float boundedPosY = Mathf.Clamp(transform.position.y, posBoundMinY, posBoundMaxY);
+            transform.position = new Vector3(boundedPosX, boundedPosY, transform.position.z);
+        }
 
         // Flip sprite on direction
         bodySprite.flipX = (horizontal < 0) ? true : false;

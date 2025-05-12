@@ -16,7 +16,9 @@ public class ResponsiveCanvasScaler : MonoBehaviour
 
     void Update()
     {
-        float screenRatio = Screen.width / Screen.height;
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        float screenRatio = screenWidth / screenHeight;
         canvasScaler.matchWidthOrHeight = screenRatio >= targetRatio ? 1 : 0;
     }
 }
